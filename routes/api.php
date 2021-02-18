@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +25,4 @@ use App\Http\Controllers\ProductController;
 //Route::post('/products', [ProductController::class, 'store']);
 
 Route::apiResource('products', ProductController::class);
+Route::apiResource('categories', CategoryController::class);
