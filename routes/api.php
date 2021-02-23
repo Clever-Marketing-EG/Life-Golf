@@ -3,6 +3,8 @@
 use App\Http\Controllers\ImagesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,7 @@ use App\Http\Controllers\ProductController;
 
 
 /*
-/*--------------------------------------------------------------------------
+|--------------------------------------------------------------------------
 | Products Routes
 |--------------------------------------------------------------------------
 */
@@ -26,10 +28,12 @@ Route::post('/products/images', [ImagesController::class, 'products'])->name('pr
 
 
 /*
-/*--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 | Categories Routes
 |--------------------------------------------------------------------------
 */
+
+Route::apiResource('categories', CategoryController::class);
 Route::post('/categories/images', [ImagesController::class, 'categories'])->name('categories.images');
 
 
