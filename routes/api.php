@@ -31,7 +31,6 @@ Route::post('/products/images', [ImagesController::class, 'products'])->name('pr
 | Categories Routes
 |--------------------------------------------------------------------------
 */
-
 Route::apiResource('categories', CategoryController::class);
 Route::post('/categories/images', [ImagesController::class, 'categories'])->name('categories.images');
 
@@ -42,8 +41,5 @@ Route::post('/categories/images', [ImagesController::class, 'categories'])->name
 | Auth Routes
 |--------------------------------------------------------------------------
 */
-
-
-
 require __DIR__.'/auth.php';
 
