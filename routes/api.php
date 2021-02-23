@@ -31,3 +31,20 @@ Route::post('/products/images', [ImagesController::class, 'products'])->name('pr
 |--------------------------------------------------------------------------
 */
 Route::post('/categories/images', [ImagesController::class, 'categories'])->name('categories.images');
+
+
+
+/*
+/*--------------------------------------------------------------------------
+| Auth Routes
+|--------------------------------------------------------------------------
+*/
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+], function () {
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+});
