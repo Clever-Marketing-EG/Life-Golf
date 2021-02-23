@@ -4,7 +4,6 @@ use App\Http\Controllers\ImagesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,12 +42,8 @@ Route::post('/categories/images', [ImagesController::class, 'categories'])->name
 | Auth Routes
 |--------------------------------------------------------------------------
 */
-Route::group([
-    'middleware' => 'api',
-    'prefix' => 'auth'
-], function () {
-    Route::post('login', [AuthController::class, 'login']);
-    Route::post('logout', [AuthController::class, 'logout']);
-    Route::post('refresh', [AuthController::class, 'refresh']);
-    //Route::post('me', [AuthController::class, 'me']);
-});
+
+
+
+require __DIR__.'/auth.php';
+
