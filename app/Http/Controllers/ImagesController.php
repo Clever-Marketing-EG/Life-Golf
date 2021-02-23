@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class ImagesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+
+
     /**
      * Save Category image
      *
