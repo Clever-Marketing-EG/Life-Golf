@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class CategoryController extends Controller
 {
@@ -18,16 +20,14 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
     public function index(): JsonResponse
     {
-
-        $categories = Category :: all();
+        $categories = Category::all();
         return response()->json([
             'success' => true,
             'data' => $categories
-
         ]);
     }
 
@@ -35,55 +35,56 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return JsonResponse
      */
     public function store(Request $request): JsonResponse
     {
-        $request->validate([
-            'name' => 'required|min:2|string',
+        $validated = $request->validate([
+            'name' => 'required|min:3|string',
+            'name_ar' => 'required|min:3|string',
             'image_url' => 'required|url'
         ]);
-        $new_category = new Category();
-        $new_category['name'] = $request['name'];
-        $new_category['image_url'] =$request['image_url'];
-        $new_category->save();
+
+        $category = Category::create($validated);
+
         return response()->json([
             'success' => true,
-            'data' => $new_category
-
+            'data' => $category
         ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @param Category $category
+     * @return JsonResponse
      */
     public function show(Category $category): JsonResponse
     {
         return response()->json([
-            'succes' => true,
+            'success' => true,
             'data' => $category
         ]);
     }
 
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Category $category
+     * @return JsonResponse
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Category $category): JsonResponse
     {
         $validated = $request->validate([
-            'name' => 'min:2|string',
+            'name' => 'min:3|string',
+            'name_ar' => 'min:3|string',
             'image_url' => 'url'
         ]);
+
         $category->update($validated);
+
         return response()->json([
             'success' => true,
             'data' => $category
@@ -93,15 +94,23 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @param Category $category
+     * @return JsonResponse
+     * @throws Exception
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category): JsonResponse
     {
-        $category->delete();
-        return response()->json([
-            'success' => true,
-            'data' => $category
-        ]);
+        try {
+            $category->delete();
+            return response()->json([
+                'success' => true,
+                'data' => $category
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
     }
 }
