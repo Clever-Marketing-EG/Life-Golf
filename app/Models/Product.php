@@ -16,11 +16,25 @@ class Product extends Model
     ];
 
 
+    protected $with = ['images'];
+
+
     /**
-     * Get the comments for the blog post.
+     * Get the images for the product.
      */
     public function images(): HasMany
     {
         return $this->hasMany(Image::class);
+    }
+
+
+    /**
+     * Returns the images of this product
+     *
+     * @return Product
+     */
+    public function getImages()
+    {
+//        return $this->load
     }
 }
