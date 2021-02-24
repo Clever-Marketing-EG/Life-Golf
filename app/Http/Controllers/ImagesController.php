@@ -59,6 +59,28 @@ class ImagesController extends Controller
 
 
     /**
+     * Save Article image
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function articles(Request $request): JsonResponse
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'name' => 'required|string|min:3'
+        ]);
+
+        $imageName = $request['name'].'_'.time().'.'.$request['image']->extension();
+        $request['image']->storeAs('public/articles_images', $imageName);
+        return response()->json([
+            "success" => true,
+            'image_url' => asset('storage/articles_images/'.$imageName)
+        ]);
+    }
+
+
+    /**
      * Save Meta image
      *
      * @param Request $request

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ImagesController;
+use App\Http\Controllers\MetaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
@@ -23,7 +25,7 @@ use App\Http\Controllers\CategoryController;
 |--------------------------------------------------------------------------
 */
 Route::apiResource('products', ProductController::class);
-Route::post('/products/images', [ImagesController::class, 'products'])->name('products.images');
+Route::post('/images/products', [ImagesController::class, 'products'])->name('products.images');
 
 
 /*
@@ -32,8 +34,25 @@ Route::post('/products/images', [ImagesController::class, 'products'])->name('pr
 |--------------------------------------------------------------------------
 */
 Route::apiResource('categories', CategoryController::class);
-Route::post('/categories/images', [ImagesController::class, 'categories'])->name('categories.images');
+Route::post('/images/categories', [ImagesController::class, 'categories'])->name('categories.images');
 
+
+/*
+|---------------------------------------------------------------------------
+| Articles Routes
+|--------------------------------------------------------------------------
+*/
+Route::apiResource('articles', ArticleController::class);
+Route::post('/images/articles', [ImagesController::class, 'articles'])->name('articles.images');
+
+
+/*
+|---------------------------------------------------------------------------
+| Meta Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('/meta', [MetaController::class, 'index'])->name('meta.index');
+Route::post('/meta', [MetaController::class, 'store'])->name('meta.store');
 
 
 /*
