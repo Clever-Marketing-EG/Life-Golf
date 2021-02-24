@@ -19,10 +19,13 @@ class CategoryFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->word,
+            'name_ar' => $this->faker->word,
+            'image_url' => $this->faker->imageUrl()
+
         ];
     }
 }
