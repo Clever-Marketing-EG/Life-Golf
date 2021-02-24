@@ -24,24 +24,18 @@ class ProductController extends Controller
         ]);
     }
 
-
     public function store(Request $request): JsonResponse
     {
-        $request->validate([
-            'name' => 'required|min:2|string',
-            'description' => 'required|min:10|string'
+        $validated = $request->validate([
+            'name' => 'required|min:3|string',
+            'name_ar' => 'required|min:3|string',
         ]);
 
-        $new_product = new Product();
-
-        $new_product['name'] = $request['name'];
-        $new_product['description'] = $request['description'];
-
-        $new_product->save();
+        $product = Product::create($validated);
 
         return response()->json([
             'success' => true,
-            'data' => $new_product
+            'data' => $product
         ]);
     }
 
@@ -53,12 +47,11 @@ class ProductController extends Controller
         ]);
     }
 
-
     public function update(Product $product, Request $request): JsonResponse
     {
         $validated = $request->validate([
-            'name' => 'min:2|string',
-            'description' => 'min:10|string'
+            'name' => 'min:3|string',
+            'name_ar' => 'min:3|string'
         ]);
 
         $product->update($validated);
@@ -80,7 +73,7 @@ class ProductController extends Controller
         } catch (Exception $e) {
             return response()->json([
                 'success' => false,
-                'message' => $e['message']
+                'message' => $e->getMessage()
             ]);
         }
     }
