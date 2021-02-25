@@ -11,6 +11,7 @@ class ImagesController extends Controller
 
     public function __construct()
     {
+        $this->middleware('AdminAuth');
         $this->middleware('auth:api');
     }
 

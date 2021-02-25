@@ -11,6 +11,7 @@ class ProductController extends Controller
 {
     public function __construct()
     {
+        $this->middleware('AdminAuth', ['except' => ['index', 'show']]);
         $this->middleware('auth:api', ['except' => ['index', 'show']]);
     }
 
