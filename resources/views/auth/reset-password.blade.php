@@ -10,9 +10,9 @@
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
         <form method="POST" action="{{ route('password.update') }}">
-            @csrf
+        @csrf
 
-            <!-- Password Reset Token -->
+        <!-- Password Reset Token -->
             <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
             <!-- Email Address -->
@@ -34,8 +34,8 @@
                 <x-label for="password_confirmation" :value="__('Confirm Password')" />
 
                 <x-input id="password_confirmation" class="block mt-1 w-full"
-                                    type="password"
-                                    name="password_confirmation" required />
+                         type="password"
+                         name="password_confirmation" required />
             </div>
 
             <div class="flex items-center justify-end mt-4">
