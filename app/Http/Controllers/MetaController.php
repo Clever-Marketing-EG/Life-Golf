@@ -14,6 +14,7 @@ class MetaController extends Controller
      * @return void
      */
     public function __construct() {
+        $this->middleware('AdminAuth')->except(['index']);
         $this->middleware('auth:api')->except(['index']);
     }
 
