@@ -46,9 +46,7 @@ class CategoryController extends Controller
             'name_ar' => 'required|min:3|string',
             'image_url' => 'required|url'
         ]);
-
         $category = Category::create($validated);
-
         return response()->json([
             'success' => true,
             'data' => $category

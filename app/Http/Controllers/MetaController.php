@@ -12,11 +12,14 @@ class MetaController extends Controller
      * Create a new ImagesController instance.
      *
      * @return void
+    //  * @param Request $request
+    //  * @param Meta $meta
+    //  * @return JsonResponse
      */
-    public function __construct() {
-        $this->middleware('AdminAuth')->except(['index']);
-        $this->middleware('auth:api')->except(['index']);
-    }
+    // public function __construct() {
+    //     $this->middleware('AdminAuth')->except(['index']);
+    //     $this->middleware('auth:api')->except(['index']);
+    // }
 
 
     public function index(): JsonResponse
@@ -28,31 +31,29 @@ class MetaController extends Controller
             'data' => $metas
         ]);
     }
-
-
-    public function store(Request $request): JsonResponse
+    public function showtextbypage($page)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|min:3',
-            'content' => 'required|string|min:3',
-            'content_ar' => 'required|string|min:3',
-            'type' => 'required|string|in:image,text',
-            'page' => 'required|string|min:3'
-        ]);
-
-        $meta = Meta::firstOrNew([
-            'name' => $request['name'],
-        ]);
-
-        $meta->content  = $validated['content'];
-        $meta->content_ar  = $validated['content_ar'];
-        $meta->type = $validated['type'];
-        $meta->page  = $validated['page'];
-        $meta->save();
-
-        return response()->json([
-            "success" => true,
-            "data"=> $meta
-        ]);
+        $data = Meta::where("type", "text")->where("page", $page)->get();
+        return $data;
     }
+    public function showimagebypage($page)
+    {
+        $data = Meta::where("type", "image")->where("page", $page)->get();
+        return $data;
+    }
+    public function getbyid($id)
+    {
+        $data = Meta::where("id", $id)->get();
+        return $data;
+    }
+
+    public function update(Request $request, $id)
+    {
+        $affected = Meta::where('id', $id)->update([
+            'content' => $request->content,
+            'content_ar' => $request->content_ar,
+        ]);
+        return $affected;
+    }
+
 }

@@ -97,8 +97,6 @@ class ImagesController extends Controller
             'image_url' => asset('storage/articles_images/'.$imageName)
         ]);
     }
-
-
     /**
      * Save Meta image
      *
@@ -108,10 +106,9 @@ class ImagesController extends Controller
     public function meta(Request $request): JsonResponse
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:100240',
             'name' => 'required|string|min:3'
         ]);
-
         $imageName = $request['name'].'_'.time().'.'.$request['image']->extension();
         $request['image']->storeAs('public/meta_images', $imageName);
         return response()->json([
