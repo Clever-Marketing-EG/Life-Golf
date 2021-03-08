@@ -8,6 +8,8 @@ use App\Http\Controllers\MetaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TermsController;
+use App\Models\Meta;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,12 @@ Route::post('/images/products', [ImagesController::class, 'products'])->name('pr
 */
 Route::apiResource('categories', CategoryController::class);
 Route::post('/images/categories', [ImagesController::class, 'categories'])->name('categories.images');
+/*
+|---------------------------------------------------------------------------
+| Terms Routes
+|--------------------------------------------------------------------------
+*/
+Route::apiResource('term', TermsController::class);
 
 
 /*
@@ -54,9 +62,14 @@ Route::post('/images/articles', [ImagesController::class, 'articles'])->name('ar
 |--------------------------------------------------------------------------
 */
 Route::get('/meta', [MetaController::class, 'index'])->name('meta.index');
-Route::post('/meta', [MetaController::class, 'store'])->name('meta.store');
+Route::put('/meta/update/{id}', [MetaController::class, 'update'])->name('meta.update');
+Route::post('/images/meta', [ImagesController::class, 'meta'])->name('meta.images');
 
-
+/* Meta Handling */
+Route::get('/meta/text/{page}',[MetaController::class,'showtextbypage']);
+Route::get('/meta/image/{page}',[MetaController::class,'showimagebypage']);
+Route::get('/meta/{id}',[MetaController::class,'getbyid']);
+// Route::get('/meta/image/{id}',[MetaController::class,'showimagebypageone']);
 /*
 /*--------------------------------------------------------------------------
 | Auth Routes
