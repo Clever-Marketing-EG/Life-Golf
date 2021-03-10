@@ -3,20 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Terms;
-use Exception;
-use GuzzleHttp\Promise\Create;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Response;
+use App\Models\Video;
+use Exception;
 
-class TermsController extends Controller
+class VideoController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('AdminAuth', ['except' => ['index', 'show']]);
-        $this->middleware('auth:api', ['except' => ['index', 'show']]);
+        $this->middleware('AdminAuth', ['except' => ['index', 'show' , 'filter']]);
+        $this->middleware('auth:api', ['except' => ['index', 'show' , 'filter']]);
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -25,12 +22,13 @@ class TermsController extends Controller
     public function index(): JsonResponse
     {
         //
-        $term = Terms::all();
+        $videos = Video::all();
         return response()->json([
             'success' => true,
-            'data' => $term
+            'data' => $videos
         ]);
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -42,71 +40,82 @@ class TermsController extends Controller
     {
         //
         $validated = $request->validate([
-            'name' => 'required|min:3|string',
-            'name_ar' => 'required|min:3|string',
-            'desc' => 'required|min:5|string',
-            'desc_ar' => 'required|min:5|string'
+            'image_url' => 'required|url',
+            'video_url' => 'required|url',
+            'title' => 'required|min:3|string',
+            'description' => 'required|min:3|string',
+            'type' => 'required|min:3|string'
+            // 'date' => 'required|min:3|date'
         ]);
-        $term = Terms::Create($validated);
+        $video = Video::create($validated);
         return response()->json([
             'success' => true,
-            'data' => $term
+            'data' => $video
         ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  Terms  $term
+     * @param  Video  $video
      * @return JsonResponse
      */
-    public function show(Terms $term): JsonResponse
+    public function show(Video $video): JsonResponse
     {
         //
         return response()->json([
-            'succes' => true,
-            'data' => $term
+            'success' => true,
+            'data' => $video
         ]);
     }
 
-
+    public function filter($type): JsonResponse
+    {
+        $videos = Video::where('type', $type)->get();
+        return response()->json([
+            'success' => true,
+            'data' => $videos
+        ]);
+    }
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  Terms  $term
+     * @param  Video  $video
      * @return JsonResponse
      */
-    public function update(Request $request, Terms $term)
+    public function update(Request $request, Video $video)
     {
         //
         $validated = $request->validate([
-            'name' => 'min:3|string',
-            'name_ar' => 'min:3|string',
-            'desc' => 'min:3|string',
-            'desc_ar' => 'min:3|string'
+            'image_url' => 'url',
+            'video_url' => 'url',
+            'title' => 'min:3|string',
+            'description' => 'min:3|string',
+            'type' => 'min:3|string'
         ]);
-        $term->update($validated);
+        $video->update($validated);
         return response()->json([
-            'succes' => true,
-            'data' => $term
+            'success' => true,
+            'data' => $video
         ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Terms $term
+     * @param  Video  $video
      * @return JsonResponse
+     * @throws Exception
      */
-    public function destroy(Terms $term): JsonResponse
+    public function destroy(Video $video): JsonResponse
     {
         //
         try {
-            $term->delete();
+            $video->delete();
             return response()->json([
                 'success' => true,
-                'data' => $term
+                'data' => $video
             ]);
         } catch (Exception $e) {
             return response()->json([

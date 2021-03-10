@@ -8,7 +8,10 @@ use App\Http\Controllers\MetaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TermsController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\GalleryController;
 use App\Models\Meta;
 
 /*
@@ -28,6 +31,7 @@ use App\Models\Meta;
 | Products Routes
 |--------------------------------------------------------------------------
 */
+
 Route::apiResource('products', ProductController::class);
 Route::post('/images/products', [ImagesController::class, 'products'])->name('products.images');
 
@@ -45,7 +49,34 @@ Route::post('/images/categories', [ImagesController::class, 'categories'])->name
 |--------------------------------------------------------------------------
 */
 Route::apiResource('term', TermsController::class);
+/*
+|---------------------------------------------------------------------------
+| Services Routes
+|--------------------------------------------------------------------------
+*/
+Route::apiResource('services', ServiceController::class);
+Route::get('/services/type/{type}', [ServiceController::class, 'filter']);
 
+
+/*
+|---------------------------------------------------------------------------
+| Videos Routes
+|--------------------------------------------------------------------------
+*/
+Route::apiResource('videos', VideoController::class);
+Route::get('/videos/type/{type}', [VideoController::class, 'filter']);
+
+
+/*
+/*
+|---------------------------------------------------------------------------
+| Gallery Routes
+|--------------------------------------------------------------------------
+*/
+Route::apiResource('gallery', GalleryController::class);
+Route::get('/gallery/type/{type}', [GalleryController::class, 'filter']);
+
+/*
 
 /*
 |---------------------------------------------------------------------------
@@ -66,9 +97,9 @@ Route::put('/meta/update/{id}', [MetaController::class, 'update'])->name('meta.u
 Route::post('/images/meta', [ImagesController::class, 'meta'])->name('meta.images');
 
 /* Meta Handling */
-Route::get('/meta/text/{page}',[MetaController::class,'showtextbypage']);
-Route::get('/meta/image/{page}',[MetaController::class,'showimagebypage']);
-Route::get('/meta/{id}',[MetaController::class,'getbyid']);
+Route::get('/meta/text/{page}', [MetaController::class, 'showtextbypage']);
+Route::get('/meta/image/{page}', [MetaController::class, 'showimagebypage']);
+Route::get('/meta/{id}', [MetaController::class, 'getbyid']);
 // Route::get('/meta/image/{id}',[MetaController::class,'showimagebypageone']);
 /*
 /*--------------------------------------------------------------------------
