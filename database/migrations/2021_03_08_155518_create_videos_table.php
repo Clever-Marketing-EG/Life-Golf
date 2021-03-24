@@ -18,8 +18,10 @@ class CreateVideosTable extends Migration
             $table->string('image_url');
             $table->string('video_url');
             $table->string('title');
+            $table->string('title_ar');
             $table->string('description');
-            $table->string('type');
+            $table->string('description_ar');
+            $table->enum('type', ['factory', 'product'])->default('factory');
             $table->timestamps();
         });
     }
