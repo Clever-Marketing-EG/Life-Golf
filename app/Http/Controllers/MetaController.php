@@ -50,8 +50,8 @@ class MetaController extends Controller
     public function update(Request $request, $id)
     {
         $affected = Meta::where('id', $id)->update([
-            'content' => $request->content,
-            'content_ar' => $request->content_ar,
+            'content' => $request['content'],
+            'content_ar' => $request['content_ar'],
         ]);
         return $affected;
     }

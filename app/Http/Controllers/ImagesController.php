@@ -30,9 +30,32 @@ class ImagesController extends Controller
 
         $imageName = $request['name'].'_'.time().'.'.$request['image']->extension();
         $request['image']->storeAs('public/categories_images', $imageName);
+
         return response()->json([
             "success" => true,
             'image_url' => asset('storage/categories_images/'.$imageName)
+        ]);
+    }
+
+
+    /**
+     * Save Product Specs image
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function specs(Request $request): JsonResponse
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240'
+        ]);
+
+
+        $path = $request->file('image')->store('specs_images', 'public');
+
+        return response()->json([
+            "success" => true,
+            'image_url' => asset('storage/'.$path)
         ]);
     }
 

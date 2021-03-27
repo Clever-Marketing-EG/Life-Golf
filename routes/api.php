@@ -34,6 +34,7 @@ use App\Models\Meta;
 
 Route::apiResource('products', ProductController::class);
 Route::post('/images/products', [ImagesController::class, 'products'])->name('products.images');
+Route::post('/images/specs', [ImagesController::class, 'specs'])->name('products.specs.images');
 
 
 /*
@@ -135,8 +136,8 @@ Route::group([
 
 
 Route::fallback(function () {
-    return response()->status('404')->json([
+    return response()->json([
         'success' => false,
         'message' => 'Not Found'
-    ]);
+    ], 404);
 });

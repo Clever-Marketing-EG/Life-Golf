@@ -44,13 +44,16 @@ class Product extends Model
             'name' => 'required|min:3|string',
             'name_ar' => 'required|min:3|string',
             'features' => 'required|min:3|string',
-            'features_ar' => 'required|min:3|string'
+            'features_ar' => 'required|min:3|string',
+            'image_url'  => 'required|min:3|url'
         ]);
 
         $product['name'] = $validated['name'];
         $product['name_ar'] = $validated['name_ar'];
         $product['features'] = $validated['features'];
         $product['features_ar'] = $validated['features_ar'];
+        $product['image_url'] = $validated['image_url'];
+
         $product->save();
         return $product;
 
