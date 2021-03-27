@@ -23,7 +23,11 @@ class ProductFactory extends Factory
     {
         return [
             'name' => $this->faker->word,
-            'name_ar' => $this->faker->word
+            'name_ar' => $this->faker->word,
+            'battery' => $this->faker->word,
+            'motor' => $this->faker->word,
+            'controller' => $this->faker->word,
+            'charger' => $this->faker->word,
         ];
     }
 }

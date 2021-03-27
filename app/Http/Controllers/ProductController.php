@@ -11,28 +11,23 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('AdminAuth', ['except' => ['index', 'show']]);
         $this->middleware('auth:api', ['except' => ['index', 'show']]);
     }
 
     public function index(): JsonResponse
     {
-        $products = Product::paginate(20);
+        $products = Product::paginate(20)->toArray();
 
-        return response()->json([
-            'success' => true,
-            'data' => $products
-        ]);
+        return response()->json(array_merge(
+            ['success' => true],
+            $products,
+        ));
     }
 
     public function store(Request $request): JsonResponse
     {
-        $validated = $request->validate([
-            'name' => 'required|min:3|string',
-            'name_ar' => 'required|min:3|string',
-        ]);
-
-        $product = Product::create($validated);
+        $product = new Product();
+        $product = Product::validateProduct($request, $product);
 
         return response()->json([
             'success' => true,
@@ -50,12 +45,7 @@ class ProductController extends Controller
 
     public function update(Product $product, Request $request): JsonResponse
     {
-        $validated = $request->validate([
-            'name' => 'min:3|string',
-            'name_ar' => 'min:3|string'
-        ]);
-
-        $product->update($validated);
+        $product = Product::validateProduct($request, $product);
 
         return response()->json([
             'success' => true,

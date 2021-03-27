@@ -12,7 +12,6 @@ class GalleryController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('AdminAuth', ['except' => ['index', 'show' , 'filter']]);
         $this->middleware('auth:api', ['except' => ['index', 'show' , 'filter']]);
     }
 

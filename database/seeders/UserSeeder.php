@@ -19,7 +19,6 @@ class UserSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'tech@clevermarketing-eg.com',
             'password' => Hash::make('password'),
-            'admin' => 'true'
         ]);
     }
 }
