@@ -132,3 +132,11 @@ Route::group([
     Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
         ->name('password.email');
 });
+
+
+Route::fallback(function () {
+    return response()->status('404')->json([
+        'success' => false,
+        'message' => 'Not Found'
+    ]);
+});

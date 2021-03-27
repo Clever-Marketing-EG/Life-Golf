@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Http\Request;
+use Mockery\Exception;
+use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
 class Product extends Model
 {
@@ -28,6 +31,30 @@ class Product extends Model
     }
 
 
+    /**
+     * validates product information
+     *
+     * @param Request $request
+     * @param Product $product
+     * @return Product
+     */
+    public static function validateProduct(Request $request, Product $product): Product
+    {
+        $validated = $request->validate([
+            'name' => 'required|min:3|string',
+            'name_ar' => 'required|min:3|string',
+            'features' => 'required|min:3|string',
+            'features_ar' => 'required|min:3|string'
+        ]);
+
+        $product['name'] = $validated['name'];
+        $product['name_ar'] = $validated['name_ar'];
+        $product['features'] = $validated['features'];
+        $product['features_ar'] = $validated['features_ar'];
+        $product->save();
+        return $product;
+
+    }
     /**
      * Returns the images of this product
      *

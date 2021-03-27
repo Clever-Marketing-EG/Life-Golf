@@ -19,7 +19,6 @@ class CreateGalleriesTable extends Migration
             $table->string('image_description');
             $table->enum('type', ['factory', 'product'])->default('factory');
             $table->timestamps();
-
         });
     }
 
