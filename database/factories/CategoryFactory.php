@@ -25,7 +25,6 @@ class CategoryFactory extends Factory
             'name' => $this->faker->word,
             'name_ar' => $this->faker->word,
             'image_url' => $this->faker->imageUrl()
-
         ];
     }
 }
