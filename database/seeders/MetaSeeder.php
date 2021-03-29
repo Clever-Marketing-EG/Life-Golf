@@ -14,7 +14,7 @@ class MetaSeeder extends Seeder
      */
     public function run()
     {
-        $data = array(
+        $homeData = array(
             [
                 'name' => 'golf_carts_header',
                 'content' => 'Golf Carts Header',
@@ -267,7 +267,17 @@ class MetaSeeder extends Seeder
                 'page' => 'home'
             ],
         );
+        $footerData = array(
+            [
+                'name' => 'content',
+                'content' => 'This is footer content!',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'footer'
+            ],
+        );
 
+        $data = array_merge($homeData, $footerData);
         DB::table('metas')->insert($data);
     }
 }
