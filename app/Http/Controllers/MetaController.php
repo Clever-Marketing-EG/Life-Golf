@@ -12,14 +12,10 @@ class MetaController extends Controller
      * Create a new ImagesController instance.
      *
      * @return void
-    //  * @param Request $request
-    //  * @param Meta $meta
-    //  * @return JsonResponse
      */
-    // public function __construct() {
-    //     $this->middleware('AdminAuth')->except(['index']);
-    //     $this->middleware('auth:api')->except(['index']);
-    // }
+     public function __construct() {
+         $this->middleware('auth:api')->only(['update']);
+     }
 
 
     public function index(): JsonResponse
