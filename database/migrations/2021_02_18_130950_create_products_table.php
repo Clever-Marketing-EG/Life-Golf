@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name_ar');
             $table->text('features');
             $table->text('features_ar');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->string('image_url');
             $table->timestamps();
         });
