@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             MetaSeeder::class,
             CertificateSeeder::class,
+            VideoSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
     }
