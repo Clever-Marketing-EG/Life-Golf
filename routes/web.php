@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +19,19 @@ use Illuminate\Support\Facades\Route;
 | Auth Routes
 |--------------------------------------------------------------------------
 */
+
 require __DIR__.'/auth.php';
+
+Route::get('/test', function () {
+    Artisan::call('storage:link');
+    Artisan::call('migrate:fresh --seed');
+    return 'done';
+});
+
+Route::fallback(function (){
+   return response()->json([
+       'success' => false,
+       'message' => 'Not Found!'
+   ],404);
+});
+
