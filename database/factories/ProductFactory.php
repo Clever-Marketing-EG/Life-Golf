@@ -27,6 +27,7 @@ class ProductFactory extends Factory
             'features' => $this->faker->word,
             'features_ar' => $this->faker->word,
             'image_url' => $this->faker->imageUrl(),
+            'category_id' => $this->faker->numberBetween(1, 5),
         ];
     }
 }
