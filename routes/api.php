@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\MetaController;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +45,7 @@ Route::post('/images/specs', [ImagesController::class, 'specs'])->name('products
 */
 Route::apiResource('categories', CategoryController::class);
 Route::post('/images/categories', [ImagesController::class, 'categories'])->name('categories.images');
+
 /*
 |---------------------------------------------------------------------------
 | Terms Routes
@@ -57,6 +59,13 @@ Route::apiResource('term', TermsController::class);
 */
 Route::apiResource('services', ServiceController::class);
 Route::get('/services/type/{type}', [ServiceController::class, 'filter']);
+
+/*
+|---------------------------------------------------------------------------
+| Certificates Routes
+|--------------------------------------------------------------------------
+*/
+Route::apiResource('certificates', CertificateController::class);
 
 
 /*

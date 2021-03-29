@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             ProductSeeder::class,
             ArticleSeeder::class,
             UserSeeder::class,
-            MetaSeeder::class
+            MetaSeeder::class,
+            CertificateSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
     }
