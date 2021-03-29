@@ -22,12 +22,13 @@ class VideoFactory extends Factory
     public function definition()
     {
         return [
-            //
             'image_url' => $this->faker->imageUrl(),
-            'video_url' => $this->faker->sentence,
-            'title' =>$this->faker->word,
+            'video_url' => 'https://www.youtube.com/embed/tgbNymZ7vqY',
+            'title' =>$this->faker->sentence,
+            'title_ar' =>$this->faker->sentence,
             'description' => $this->faker->sentence,
-            'date' => $this->faker->dateTimeBetween('now', '+30 years')
+            'description_ar' => $this->faker->sentence,
+            'type' => $this->faker->randomElement(['factory', 'product'])
         ];
     }
 }
