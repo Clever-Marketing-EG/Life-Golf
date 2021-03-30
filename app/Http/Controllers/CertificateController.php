@@ -19,6 +19,7 @@ class CertificateController extends Controller
     public function index(): JsonResponse
     {
         $certificates = Certificate::all();
+//        dd($certificates);
         return response()->json([
             'success' => true,
             'data' => $certificates

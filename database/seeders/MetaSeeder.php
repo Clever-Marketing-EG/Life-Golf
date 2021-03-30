@@ -267,6 +267,71 @@ class MetaSeeder extends Seeder
                 'page' => 'home'
             ],
         );
+        $aboutUsData = array(
+            [
+                'name' => 'image_1',
+                'content' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'content_ar' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'type' => 'image',
+                'page' => 'about-us'
+            ],
+            [
+                'name' => 'image_2',
+                'content' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'content_ar' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'type' => 'image',
+                'page' => 'about-us'
+            ],
+            [
+                'name' => 'image_3',
+                'content' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'content_ar' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'type' => 'image',
+                'page' => 'about-us'
+            ],
+            [
+                'name' => 'image_4',
+                'content' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'content_ar' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'type' => 'image',
+                'page' => 'about-us'
+            ],
+            [
+                'name' => 'content',
+                'content' => 'This is Content',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'about-us'
+            ],
+            [
+                'name' => 'number_of_clients',
+                'content' => '121',
+                'content_ar' => '121',
+                'type' => 'text',
+                'page' => 'about-us'
+            ],
+            [
+                'name' => 'years_of_experience',
+                'content' => '10',
+                'content_ar' => '10',
+                'type' => 'text',
+                'page' => 'about-us'
+            ],
+            [
+                'name' => 'number_of_engineers',
+                'content' => '100',
+                'content_ar' => '100',
+                'type' => 'text',
+                'page' => 'about-us'
+            ],
+            [
+                'name' => 'number_of_sold_vehicles',
+                'content' => '250',
+                'content_ar' => '250',
+                'type' => 'text',
+                'page' => 'about-us'
+            ]
+        );
         $footerData = array(
             [
                 'name' => 'content',
@@ -277,7 +342,8 @@ class MetaSeeder extends Seeder
             ],
         );
 
-        $data = array_merge($homeData, $footerData);
+        $data = array_merge($homeData, $aboutUsData, $footerData);
+
         DB::table('metas')->insert($data);
     }
 }
