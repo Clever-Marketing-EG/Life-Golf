@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
             MetaSeeder::class,
             CertificateSeeder::class,
             VideoSeeder::class,
+            GallerySeeder::class
         ]);
+
         // \App\Models\User::factory(10)->create();
     }
 }
