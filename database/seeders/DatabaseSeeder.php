@@ -19,9 +19,11 @@ class DatabaseSeeder extends Seeder
             ArticleSeeder::class,
             UserSeeder::class,
             MetaSeeder::class,
+            ServiceSeeder::class,
             CertificateSeeder::class,
             VideoSeeder::class,
-            GallerySeeder::class
+            GallerySeeder::class,
+            TermsSeeder::class
         ]);
 
         // \App\Models\User::factory(10)->create();
