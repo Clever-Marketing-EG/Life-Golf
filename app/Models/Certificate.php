@@ -10,7 +10,9 @@ class Certificate extends Model
     use HasFactory;
     protected $fillable = [
         'image_url',
-        'certificate_name'
-
+        'name',
+        'name_ar'
     ];
+
+    public $timestamps = false;
 }
