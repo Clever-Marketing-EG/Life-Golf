@@ -24,4 +24,15 @@ class Category extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+
+    /**
+     * Relation to articles
+     *
+     * @return HasMany
+     */
+    public function articles(): HasMany
+    {
+        return $this->hasMany(Article::class);
+    }
 }
