@@ -22,8 +22,10 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             CertificateSeeder::class,
             VideoSeeder::class,
+            GallerySeeder::class,
             TermsSeeder::class
         ]);
+
         // \App\Models\User::factory(10)->create();
     }
 }

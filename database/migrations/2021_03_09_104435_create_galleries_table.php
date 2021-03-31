@@ -16,7 +16,8 @@ class CreateGalleriesTable extends Migration
         Schema::create('galleries', function (Blueprint $table) {
             $table->id();
             $table->string('image_url');
-            $table->string('image_description');
+            $table->string('description');
+            $table->string('description_ar');
             $table->enum('type', ['factory', 'product'])->default('factory');
             $table->timestamps();
         });
