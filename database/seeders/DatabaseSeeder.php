@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ArticleCategory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,7 +24,8 @@ class DatabaseSeeder extends Seeder
             CertificateSeeder::class,
             VideoSeeder::class,
             GallerySeeder::class,
-            TermsSeeder::class
+            TermsSeeder::class,
+            ArticleCategorySeeder::class
         ]);
 
         // \App\Models\User::factory(10)->create();
