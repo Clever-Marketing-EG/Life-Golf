@@ -22,12 +22,13 @@ class ArticleController extends Controller
      */
     public function index(): JsonResponse
     {
-        $articles = Article::paginate(30)->toArray();
+        $articles = Article::paginate(30);
+        $articles = $articles->load('category:id,name,name_ar')->toArray();
 
         return response()->json(
             array_merge(
                 ['success' => true],
-                $articles,
+                ['data' => $articles],
             )
         );
     }
@@ -64,7 +65,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article): JsonResponse
     {
-        $article = $article->load('category');
+        $article = $article->load('category:id,name,name_ar');
         return response()->json([
             'success' => true,
             'data' => $article
