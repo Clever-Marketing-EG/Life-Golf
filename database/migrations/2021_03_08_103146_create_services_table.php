@@ -27,12 +27,9 @@ class CreateServicesTable extends Migration
             $table->json('points_ar')->nullable();
             $table->json('points_2')->nullable();
             $table->json('points_2_ar')->nullable();
-            // $table->string('service_type');
             $table->string('image_url');
             $table->string('image_url1');
             $table->string('image_url2');
-
-            // $table->json('descArray2');
             $table->timestamps();
         });
     }
