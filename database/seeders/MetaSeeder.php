@@ -266,6 +266,35 @@ class MetaSeeder extends Seeder
                 'type' => 'image',
                 'page' => 'home'
             ],
+            [
+                'name' => 'news_content',
+                'content' => 'Home News content',
+                'content_ar' => 'محتوي',
+                'type' => 'text',
+                'page' => 'home'
+            ],
+            [
+                'name' => 'news_header',
+                'content' => 'Home News header',
+                'content_ar' => 'محتوي',
+                'type' => 'text',
+                'page' => 'home'
+            ],
+            [
+                'name' => 'products_header',
+                'content' => 'Home products header',
+                'content_ar' => 'محتوي',
+                'type' => 'text',
+                'page' => 'home'
+            ],
+            [
+                'name' => 'services_header',
+                'content' => 'Home services header',
+                'content_ar' => 'محتوي',
+                'type' => 'text',
+                'page' => 'home'
+            ],
+
         );
         $aboutUsData = array(
             [
@@ -297,6 +326,13 @@ class MetaSeeder extends Seeder
                 'page' => 'about-us'
             ],
             [
+                'name' => 'header',
+                'content' => 'Get to know us better',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'about-us'
+            ],
+            [
                 'name' => 'content',
                 'content' => 'This is Content',
                 'content_ar' => 'محتوى',
@@ -311,9 +347,23 @@ class MetaSeeder extends Seeder
                 'page' => 'about-us'
             ],
             [
+                'name' => 'name_of_clients',
+                'content' => 'Happy clients',
+                'content_ar' => 'محتوي',
+                'type' => 'text',
+                'page' => 'about-us'
+            ],
+            [
                 'name' => 'years_of_experience',
                 'content' => '10',
                 'content_ar' => '10',
+                'type' => 'text',
+                'page' => 'about-us'
+            ],
+            [
+                'name' => 'name_of_experience',
+                'content' => 'Years of Experience',
+                'content_ar' => 'محتوي',
                 'type' => 'text',
                 'page' => 'about-us'
             ],
@@ -325,9 +375,45 @@ class MetaSeeder extends Seeder
                 'page' => 'about-us'
             ],
             [
+                'name' => 'name_of_engineers',
+                'content' => 'Engineers',
+                'content_ar' => 'محتوي',
+                'type' => 'text',
+                'page' => 'about-us'
+            ],
+
+            [
                 'name' => 'number_of_sold_vehicles',
                 'content' => '250',
                 'content_ar' => '250',
+                'type' => 'text',
+                'page' => 'about-us'
+            ],
+            [
+                'name' => 'name_of_sold_vehicles',
+                'content' => 'Vehicle sold',
+                'content_ar' => 'محتوي',
+                'type' => 'text',
+                'page' => 'about-us'
+            ],
+            [
+                'name' => 'certificates_header',
+                'content' => 'Our honors and certificate',
+                'content_ar' => 'محتوي',
+                'type' => 'text',
+                'page' => 'about-us'
+            ],
+            [
+                'name' => 'video_header',
+                'content' => 'Video presentation',
+                'content_ar' => 'محتوي',
+                'type' => 'text',
+                'page' => 'about-us'
+            ],
+            [
+                'name' => 'gallery_header',
+                'content' => 'Our gallery',
+                'content_ar' => 'محتوي',
                 'type' => 'text',
                 'page' => 'about-us'
             ]
@@ -341,8 +427,52 @@ class MetaSeeder extends Seeder
                 'page' => 'footer'
             ],
         );
+        $maintenanceData = array(
+            [
+                'name' => 'maintenance_header_1',
+                'content' => 'This is header!',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'maintenance'
+            ],
+            [
+                'name' => 'maintenance_header_2',
+                'content' => 'This is header!',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'maintenance'
+            ],
+            [
+                'name' => 'maintenance_header_3',
+                'content' => 'This is header!',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'maintenance'
+            ],
+            [
+                'name' => 'maintenance_content_1',
+                'content' => 'This is content!',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'maintenance'
+            ],
+            [
+                'name' => 'maintenance_content_2',
+                'content' => 'This is content!',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'maintenance'
+            ],
+            [
+                'name' => 'maintenance_content_3',
+                'content' => 'This is content!',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'maintenance'
+            ],
+        );
 
-        $data = array_merge($homeData, $aboutUsData, $footerData);
+        $data = array_merge($homeData, $aboutUsData, $footerData, $maintenanceData);
 
         DB::table('metas')->insert($data);
     }
