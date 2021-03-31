@@ -58,7 +58,7 @@ Route::apiResource('term', TermsController::class);
 |--------------------------------------------------------------------------
 */
 Route::apiResource('services', ServiceController::class);
-Route::get('/services/type/{type}', [ServiceController::class, 'filter']);
+// Route::get('/services/type/{type}', [ServiceController::class, 'filter']);
 
 /*
 |---------------------------------------------------------------------------
