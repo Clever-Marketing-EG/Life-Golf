@@ -32,9 +32,9 @@ use App\Models\Meta;
 | Products Routes
 |--------------------------------------------------------------------------
 */
-
 Route::apiResource('products', ProductController::class);
 Route::post('/images/products', [ImagesController::class, 'products'])->name('products.images');
+
 Route::post('/images/specs', [ImagesController::class, 'specs'])->name('products.specs.images');
 
 
@@ -52,6 +52,7 @@ Route::post('/images/categories', [ImagesController::class, 'categories'])->name
 |--------------------------------------------------------------------------
 */
 Route::apiResource('term', TermsController::class);
+
 /*
 |---------------------------------------------------------------------------
 | Services Routes
@@ -86,7 +87,6 @@ Route::get('/videos/type/{type}', [VideoController::class, 'filter']);
 Route::apiResource('gallery', GalleryController::class);
 Route::get('/gallery/type/{type}', [GalleryController::class, 'filter']);
 
-/*
 
 /*
 |---------------------------------------------------------------------------
