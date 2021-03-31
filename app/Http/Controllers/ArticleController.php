@@ -64,6 +64,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article): JsonResponse
     {
+        $article = $article->load('category');
         return response()->json([
             'success' => true,
             'data' => $article

@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
             VideoSeeder::class,
             GallerySeeder::class,
             TermsSeeder::class,
-            ArticleCategorySeeder::class
         ]);
 
         // \App\Models\User::factory(10)->create();
