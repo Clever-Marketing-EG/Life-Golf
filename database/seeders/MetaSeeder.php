@@ -470,9 +470,74 @@ class MetaSeeder extends Seeder
                 'type' => 'text',
                 'page' => 'maintenance'
             ],
+            [
+                'name' => 'image_1',
+                'content' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'content_ar' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'type' => 'image',
+                'page' => 'maintenance'
+            ],
+            [
+                'name' => 'image_2',
+                'content' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'content_ar' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'type' => 'image',
+                'page' => 'maintenance'
+            ],
+            [
+                'name' => 'image_3',
+                'content' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'content_ar' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'type' => 'image',
+                'page' => 'maintenance'
+            ],
+        );
+        $contactData = array(
+            [
+                'name' => 'contact_phone',
+                'content' => 'Phone',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'contact'
+            ],
+            [
+                'name' => 'contact_number',
+                'content' => '+20123456789',
+                'content_ar' => '+20123456789',
+                'type' => 'text',
+                'page' => 'contact'
+            ],
+            [
+                'name' => 'contact_email',
+                'content' => 'Email',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'contact'
+            ],
+            [
+                'name' => 'contact_mail',
+                'content' => 'Email',
+                'content_ar' => 'example@example.com',
+                'type' => 'text',
+                'page' => 'contact'
+            ],
+            [
+                'name' => 'contact_address',
+                'content' => 'Address',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'contact'
+            ],
+            [
+                'name' => 'contact_location',
+                'content' => 'Cairo,Egypt',
+                'content_ar' => 'مصر',
+                'type' => 'text',
+                'page' => 'contact'
+            ]
         );
 
-        $data = array_merge($homeData, $aboutUsData, $footerData, $maintenanceData);
+        $data = array_merge($homeData, $aboutUsData, $footerData, $maintenanceData, $contactData);
 
         DB::table('metas')->insert($data);
     }
