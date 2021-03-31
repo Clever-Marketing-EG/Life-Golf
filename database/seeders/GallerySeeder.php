@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Video;
+use App\Models\Gallery;
 use Illuminate\Database\Seeder;
 
-class VideoSeeder extends Seeder
+class GallerySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,6 @@ class VideoSeeder extends Seeder
      */
     public function run()
     {
-        Video::factory(10)->create();
-
+        Gallery::factory(20)->create();
     }
 }
