@@ -1,5 +1,5 @@
-<?php
 
+<?php
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
@@ -67,7 +67,6 @@ Route::apiResource('services', ServiceController::class);
 |--------------------------------------------------------------------------
 */
 Route::apiResource('certificates', CertificateController::class);
-
 
 /*
 |---------------------------------------------------------------------------
