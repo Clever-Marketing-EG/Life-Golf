@@ -102,7 +102,7 @@ Route::post('/images/articles', [ImagesController::class, 'articles'])->name('ar
 |--------------------------------------------------------------------------
 */
 Route::get('/meta', [MetaController::class, 'index'])->name('meta.index');
-Route::put('/meta/update/{id}', [MetaController::class, 'update'])->name('meta.update');
+Route::patch('/meta/update/{meta}', [MetaController::class, 'update'])->name('meta.update');
 Route::post('/images/meta', [ImagesController::class, 'meta'])->name('meta.images');
 
 /*
