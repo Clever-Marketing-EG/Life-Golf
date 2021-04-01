@@ -50,7 +50,6 @@ class ImagesController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240'
         ]);
 
-
         $path = $request->file('image')->store('specs_images', 'public');
 
         return response()->json([
@@ -59,6 +58,26 @@ class ImagesController extends Controller
         ]);
     }
 
+
+    /**
+     * Save certificate Image
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function certificates(Request $request): JsonResponse
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240'
+        ]);
+
+        $path = $request->file('image')->store('certificates_images', 'public');
+
+        return response()->json([
+            "success" => true,
+            'image_url' => asset('storage/'.$path)
+        ]);
+    }
 
     private function generateRandomString($length = 10): string
     {

@@ -67,6 +67,7 @@ Route::apiResource('services', ServiceController::class);
 |--------------------------------------------------------------------------
 */
 Route::apiResource('certificates', CertificateController::class);
+Route::post('/images/certificates', [ImagesController::class, 'certificates'])->name('certificates.images');
 
 /*
 |---------------------------------------------------------------------------
