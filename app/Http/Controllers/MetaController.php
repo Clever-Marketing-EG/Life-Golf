@@ -28,13 +28,19 @@ class MetaController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Meta $meta)
     {
-        $affected = Meta::where('id', $id)->update([
-            'content' => $request['content'],
-            'content_ar' => $request['content_ar'],
+        $validated = $request->validate([
+            'content' => 'string|min:3',
+            'content_ar' => 'string|min:3'
         ]);
-        return $affected;
+
+        $meta->update($validated);
+
+        return response()->json([
+            'success' => true,
+            'data' => $meta
+        ]);
     }
 
 }
