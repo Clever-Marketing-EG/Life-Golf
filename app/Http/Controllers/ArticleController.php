@@ -45,11 +45,19 @@ class ArticleController extends Controller
             'title_ar' => 'required|min:3|string',
             'content' => 'required|min:3|string',
             'content_ar' => 'required|min:3|string',
-            'image_url' => 'required|url'
+            'image_url' => 'required|url',
+            'category_id' => 'required|integer|exists:categories,id'
+
         ]);
 
-        $article = Article::create($validated);
-
+        $article = new Article();
+        $article['title'] = $validated['title'];
+        $article['title_ar'] = $validated['title_ar'];
+        $article['content'] = $validated['content'];
+        $article['content_ar'] = $validated['content_ar'];
+        $article['image_url'] = $validated['image_url'];
+        $article['category_id'] = $validated['category_id'];
+        
         return response()->json([
             'success' => true,
             'data' => $article
@@ -67,7 +75,7 @@ class ArticleController extends Controller
         $article = $article->load('category');
         return response()->json([
             'success' => true,
-            'data' => $article
+            'data' => $article  
         ]);
     }
 
@@ -85,7 +93,8 @@ class ArticleController extends Controller
             'title_ar' => 'min:3|string',
             'content' => 'min:3|string',
             'content_ar' => 'min:3|string',
-            'image_url' => 'url'
+            'image_url' => 'url',
+            'category_id' => 'integer|exists:categories,id'
         ]);
 
         $article->update($validated);
