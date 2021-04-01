@@ -38,7 +38,9 @@ class CertificateController extends Controller
     {
           $validated = $request->validate([
               'image_url' => 'required|url',
-              'certificate_name' => 'required|min:3|string'
+              'name' => 'required|min:3|string',
+              'name_ar' => 'required|min:3|string'
+
 
           ]);
 
@@ -54,13 +56,15 @@ class CertificateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Certificates $certificate
      * @return JsonResponse
      */
-    public function show($id)
+    public function show(Certificate $certificate): JsonResponse
     {
-        //
-    }
+        return response()->json([
+            'success' => true,
+            'data' => $certificate
+        ]);    }
 
 
 
