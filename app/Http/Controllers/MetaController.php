@@ -27,21 +27,6 @@ class MetaController extends Controller
             'data' => $metas
         ]);
     }
-    public function showtextbypage($page)
-    {
-        $data = Meta::where("type", "text")->where("page", $page)->get();
-        return $data;
-    }
-    public function showimagebypage($page)
-    {
-        $data = Meta::where("type", "image")->where("page", $page)->get();
-        return $data;
-    }
-    public function getbyid($id)
-    {
-        $data = Meta::where("id", $id)->get();
-        return $data;
-    }
 
     public function update(Request $request, $id)
     {
