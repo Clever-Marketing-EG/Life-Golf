@@ -16,4 +16,6 @@ class Meta extends Model
         'type',
         'page'
     ];
+
+    public $timestamps = false;
 }

@@ -106,11 +106,6 @@ Route::get('/meta', [MetaController::class, 'index'])->name('meta.index');
 Route::put('/meta/update/{id}', [MetaController::class, 'update'])->name('meta.update');
 Route::post('/images/meta', [ImagesController::class, 'meta'])->name('meta.images');
 
-/* Meta Handling */
-//Route::get('/meta/text/{page}', [MetaController::class, 'showtextbypage']);
-//Route::get('/meta/image/{page}', [MetaController::class, 'showimagebypage']);
-//Route::get('/meta/{id}', [MetaController::class, 'getbyid']);
-// Route::get('/meta/image/{id}',[MetaController::class,'showimagebypageone']);
 /*
 /*--------------------------------------------------------------------------
 | Auth Routes
