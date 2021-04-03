@@ -47,9 +47,9 @@ class ServiceController extends Controller
             'points_ar' => 'nullable|string',
             'points_2' => 'nullable|string',
             'points_2_ar' => 'nullable|string',
-            'image_url' => 'required|url',
-            'image_url1' => 'required|url',
-            'image_url2' => 'required|url',
+            'image_url_1' => 'required|url',
+            'image_url_2' => 'required|url',
+            'image_url_3' => 'required|url',
 
             // 'service_type' => 'required|min:3|string'
 
@@ -100,9 +100,9 @@ class ServiceController extends Controller
         $service->points_ar = $points_ar;
         $service->points_2 = $points_2;
         $service->points_2_ar = $points_2_ar;
-        $service->image_url = $validated['image_url'];
-        $service->image_url1 = $validated['image_url1'];
-        $service->image_url2 = $validated['image_url2'];
+        $service->image_url_1 = $validated['image_url_1'];
+        $service->image_url_2 = $validated['image_url_2'];
+        $service->image_url_3 = $validated['image_url_3'];
         $service->save();
         return response()->json([
             'success' => true,
@@ -156,9 +156,9 @@ class ServiceController extends Controller
             'points_ar' => 'string',
             'points_2' => 'string',
             'points_2_ar' => 'string',
-            'image_url' => 'url',
-            'image_url1' => 'url',
-            'image_url2' => 'url'
+            'image_url_1' => 'url',
+            'image_url_2' => 'url',
+            'image_url_3' => 'url'
 
         ]);
         $pointsArray = explode(',', request('points'));
@@ -207,9 +207,9 @@ class ServiceController extends Controller
         $service->points_ar = $points_ar;
         $service->points_2 = $points_2;
         $service->points_2_ar = $points_2_ar;
-        $service->image_url = $validated['image_url'];
-        $service->image_url = $validated['image_url1'];
-        $service->image_url = $validated['image_url2'];
+        $service->image_url_1 = $validated['image_url_1'];
+        $service->image_url_2 = $validated['image_url_2'];
+        $service->image_url_3 = $validated['image_url_3'];
         $service->save();
         return response()->json([
             'success' => true,
