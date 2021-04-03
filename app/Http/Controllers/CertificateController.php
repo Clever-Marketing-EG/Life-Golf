@@ -10,6 +10,8 @@ use GrahamCampbell\ResultType\Success;
 
 class CertificateController extends Controller
 {
+
+    
     /**
      * Display a listing of the resource.
      *

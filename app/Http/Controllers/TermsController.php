@@ -11,10 +11,6 @@ use Illuminate\Http\Response;
 
 class TermsController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:api', ['except' => ['index', 'show']]);
-    }
 
     /**
      * Display a listing of the resource.
@@ -23,7 +19,6 @@ class TermsController extends Controller
      */
     public function index(): JsonResponse
     {
-        //
         $term = Terms::all();
         return response()->json([
             'success' => true,
