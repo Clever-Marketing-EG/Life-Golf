@@ -75,6 +75,7 @@ Route::post('/images/certificates', [ImagesController::class, 'certificates'])->
 |--------------------------------------------------------------------------
 */
 Route::apiResource('videos', VideoController::class);
+Route::post('/images/videos', [ImagesController::class, 'videos'])->name('videos.images');
 Route::get('/videos/type/{type}', [VideoController::class, 'filter']);
 
 
@@ -85,6 +86,7 @@ Route::get('/videos/type/{type}', [VideoController::class, 'filter']);
 |--------------------------------------------------------------------------
 */
 Route::apiResource('gallery', GalleryController::class);
+Route::post('/images/galleries', [ImagesController::class, 'galleries'])->name('galleries.images');
 Route::get('/gallery/type/{type}', [GalleryController::class, 'filter']);
 
 

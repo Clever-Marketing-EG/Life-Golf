@@ -19,7 +19,6 @@ class CertificateController extends Controller
     public function index(): JsonResponse
     {
         $certificates = Certificate::all();
-//        dd($certificates);
         return response()->json([
             'success' => true,
             'data' => $certificates
@@ -72,23 +71,49 @@ class CertificateController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Certificate  $certificate
      * @return JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Certificate  $certificate)
     {
-        //
+
+        $validated = $request->validate([
+            'image_url' => 'url',
+            'name' => 'min:3|string',
+            'name_ar' => 'min:3|string'
+
+
+        ]);
+
+        $certificate->update($validated);
+        return response()->json([
+          'success' => true,
+          'data' => $certificate
+
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Certificate $certificate
      * @return JsonResponse
      * @throws Exception
      */
-    public function destroy($id)
+    public function destroy(Certificate $certificate)
     {
-        //
+        try{
+            $certificate->delete();
+            return response()->json([
+                'succes' => true,
+                'data' => $certificate
+            ]);
+
+        }catch(Exception $e){
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+        }
     }
 }

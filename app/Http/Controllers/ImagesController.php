@@ -78,6 +78,44 @@ class ImagesController extends Controller
             'image_url' => asset('storage/'.$path)
         ]);
     }
+    /**
+     * Save video Image
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function videos(Request $request): JsonResponse
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240'
+        ]);
+
+        $path = $request->file('image')->store('videos_images', 'public');
+
+        return response()->json([
+            "success" => true,
+            'image_url' => asset('storage/'.$path)
+        ]);
+    }
+      /**
+     * Save Gallery Image
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function galleries(Request $request): JsonResponse
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240'
+        ]);
+
+        $path = $request->file('image')->store('galleries_images', 'public');
+
+        return response()->json([
+            "success" => true,
+            'image_url' => asset('storage/'.$path)
+        ]);
+    }
 
     private function generateRandomString($length = 10): string
     {

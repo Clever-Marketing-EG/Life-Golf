@@ -42,7 +42,9 @@ class VideoController extends Controller
             'image_url' => 'required|url',
             'video_url' => 'required|url',
             'title' => 'required|min:3|string',
+            'title_ar' => 'required|min:3|string',
             'description' => 'required|min:3|string',
+            'description_ar' => 'required|min:3|string',
             'type' => 'required|min:3|string'
             // 'date' => 'required|min:3|date'
         ]);
@@ -90,7 +92,9 @@ class VideoController extends Controller
             'image_url' => 'url',
             'video_url' => 'url',
             'title' => 'min:3|string',
+            'title_ar' => 'min:3|string',
             'description' => 'min:3|string',
+            'description_ar' => 'min:3|string',
             'type' => 'min:3|string'
         ]);
         $video->update($validated);

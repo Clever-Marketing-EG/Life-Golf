@@ -40,7 +40,8 @@ class GalleryController extends Controller
     {
         $validated = $request->validate([
             'image_url' => 'required:url',
-            'image_description' => 'required|min:3|string',
+            'description' => 'required|min:3|string',
+            'description_ar' => 'required|min:3|string',
             'type' => 'required|min:3|string'
         ]);
         $gallery = Gallery::create($validated);
@@ -84,7 +85,8 @@ class GalleryController extends Controller
     {
         $validated = $request->validate([
             'image_url' => 'url',
-            'image_description' => 'min:3|string',
+            'description' => 'min:3|string',
+            'description_ar' => 'min:3|string',
             'type' => 'min:3|string'
         ]);
         $gallery->update($validated);

@@ -12,7 +12,9 @@ class Video extends Model
         'image_url',
         'video_url',
         'title',
+        'title_ar',
         'description',
+        'description_ar',
         'type'
         // 'date'
     ];
