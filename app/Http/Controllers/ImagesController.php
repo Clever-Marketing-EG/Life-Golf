@@ -116,6 +116,26 @@ class ImagesController extends Controller
             'image_url' => asset('storage/'.$path)
         ]);
     }
+       /**
+     * Save services Image
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function services(Request $request): JsonResponse
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240'
+        ]);
+
+        $path = $request->file('image')->store('services_images', 'public');
+
+        return response()->json([
+            "success" => true,
+            'image_url' => asset('storage/'.$path)
+        ]);
+    }
+
 
     private function generateRandomString($length = 10): string
     {
