@@ -105,4 +105,13 @@ class CategoryController extends Controller
             ]);
         }
     }
+
+
+    public function products(Category $category)
+    {
+        return response()->json([
+            'success' => true,
+            'data' => array_slice($category->products->toArray(), 0, 5),
+        ]);
+    }
 }

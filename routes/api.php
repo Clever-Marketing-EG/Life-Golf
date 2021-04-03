@@ -44,6 +44,7 @@ Route::post('/images/specs', [ImagesController::class, 'specs'])->name('products
 |--------------------------------------------------------------------------
 */
 Route::apiResource('categories', CategoryController::class);
+Route::get('/categories/{category}/products', [CategoryController::class, 'products']);
 Route::post('/images/categories', [ImagesController::class, 'categories'])->name('categories.images');
 
 /*
@@ -61,8 +62,6 @@ Route::apiResource('term', TermsController::class);
 Route::apiResource('services', ServiceController::class);
 Route::post('/images/services', [ImagesController::class, 'services'])->name('services.images');
 
-// Route::get('/services/type/{type}', [ServiceController::class, 'filter']);
-
 /*
 |---------------------------------------------------------------------------
 | Certificates Routes
@@ -78,7 +77,6 @@ Route::post('/images/certificates', [ImagesController::class, 'certificates'])->
 */
 Route::apiResource('videos', VideoController::class);
 Route::post('/images/videos', [ImagesController::class, 'videos'])->name('videos.images');
-Route::get('/videos/type/{type}', [VideoController::class, 'filter']);
 
 
 /*
@@ -89,7 +87,6 @@ Route::get('/videos/type/{type}', [VideoController::class, 'filter']);
 */
 Route::apiResource('gallery', GalleryController::class);
 Route::post('/images/galleries', [ImagesController::class, 'galleries'])->name('galleries.images');
-Route::get('/gallery/type/{type}', [GalleryController::class, 'filter']);
 
 
 /*
