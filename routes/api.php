@@ -61,6 +61,7 @@ Route::apiResource('term', TermsController::class);
 */
 Route::apiResource('services', ServiceController::class);
 Route::post('/images/services', [ImagesController::class, 'services'])->name('services.images');
+Route::get('services/service/{name}', [ServiceController::class, 'filter']);
 
 /*
 |---------------------------------------------------------------------------
