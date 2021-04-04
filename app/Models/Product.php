@@ -43,6 +43,10 @@ class Product extends Model
         $validated = $request->validate([
             'name' => 'required|min:3|string',
             'name_ar' => 'required|min:3|string',
+            'description' => 'required|min:3|string',
+            'description_ar' => 'required|min:3|string',
+            'points' =>'required|min:3|string',
+            'points_ar' =>'required|min:3|string',
             'features' => 'required|min:3|string',
             'features_ar' => 'required|min:3|string',
             'image_url'  => 'required|min:3|url'
