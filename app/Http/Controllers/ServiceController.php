@@ -161,6 +161,7 @@ class ServiceController extends Controller
             'image_url_3' => 'url'
 
         ]);
+        
         $pointsArray = explode(',', request('points'));
         $points = '[';
         foreach ($pointsArray as $point) {
