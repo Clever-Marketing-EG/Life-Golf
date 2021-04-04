@@ -541,6 +541,27 @@ class MetaSeeder extends Seeder
                 'page' => 'electronics'
             ]
         );
+        $customData = array(
+            [
+                'name' => 'customize_title',
+                'content' => 'Customize your order with life golf',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'customize'
+            ],    [
+                'name' => 'customize_content',
+                'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+                sollicitudin vulputate porta. Quisque ut hendrerit est, a pulvinar augue. Morbi
+                vel massa at tellus porta dignissim. Praesent mauris ante, lobortis at erat
+                quis, placerat pellentesque erat. Morbi vitae suscipit nibh. Ut volutpat justo
+                ut metus condimentum, sit amet tincidunt dui maximus. Suspendisse
+                pretium erat nec lorem lobortis aliquet. Nam ut dui dui. Donec eget fringilla…',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'customize'
+            ],
+            
+        );
         $contactData = array(
             [
                 'name' => 'contact_phone',
@@ -586,7 +607,7 @@ class MetaSeeder extends Seeder
             ]
         );
 
-        $data = array_merge($homeData, $aboutUsData, $footerData, $maintenanceData, $contactData, $electronicDate);
+        $data = array_merge($homeData, $aboutUsData, $footerData, $maintenanceData, $contactData, $electronicDate, $customData);
 
         DB::table('metas')->insert($data);
     }
