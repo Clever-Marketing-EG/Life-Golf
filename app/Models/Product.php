@@ -56,6 +56,10 @@ class Product extends Model
         $product['name_ar'] = $validated['name_ar'];
         $product['features'] = $validated['features'];
         $product['features_ar'] = $validated['features_ar'];
+        $product['description'] = $validated['description'];
+        $product['description_ar'] = $validated['description_ar'];
+        $product['points'] = $validated['points'];
+        $product['points_ar'] = $validated['points_ar'];
         $product['image_url'] = $validated['image_url'];
 
         $product->save();
