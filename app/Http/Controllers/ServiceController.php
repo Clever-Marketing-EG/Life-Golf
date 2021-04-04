@@ -9,10 +9,7 @@ use Exception;
 
 class ServiceController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:api', ['except' => ['index', 'show']]);
-    }
+
     /**
      * Display a listing of the resource.
      *
@@ -164,6 +161,7 @@ class ServiceController extends Controller
             'image_url_3' => 'url'
 
         ]);
+        
         $pointsArray = explode(',', request('points'));
         $points = '[';
         foreach ($pointsArray as $point) {

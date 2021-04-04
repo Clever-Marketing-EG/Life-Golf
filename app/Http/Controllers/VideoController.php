@@ -9,10 +9,7 @@ use Exception;
 
 class VideoController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:api', ['except' => ['index', 'show' , 'filter']]);
-    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,7 +17,6 @@ class VideoController extends Controller
      */
     public function index(): JsonResponse
     {
-        //
         $videos = Video::all();
         return response()->json([
             'success' => true,
@@ -46,7 +42,6 @@ class VideoController extends Controller
             'description' => 'required|min:3|string',
             'description_ar' => 'required|min:3|string',
             'type' => 'required|min:3|string'
-            // 'date' => 'required|min:3|date'
         ]);
         $video = Video::create($validated);
         return response()->json([
@@ -63,21 +58,13 @@ class VideoController extends Controller
      */
     public function show(Video $video): JsonResponse
     {
-        //
         return response()->json([
             'success' => true,
             'data' => $video
         ]);
     }
 
-    public function filter($type): JsonResponse
-    {
-        $videos = Video::where('type', $type)->get();
-        return response()->json([
-            'success' => true,
-            'data' => $videos
-        ]);
-    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -87,7 +74,6 @@ class VideoController extends Controller
      */
     public function update(Request $request, Video $video)
     {
-        //
         $validated = $request->validate([
             'image_url' => 'url',
             'video_url' => 'url',

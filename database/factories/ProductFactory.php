@@ -21,12 +21,22 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
+        
+        $point1 = $this->faker->text;
+        $point2 = $this->faker->text;
+        $point3 = $this->faker->text;
+        $points = '["'.$point1.'","'.$point2.'","'.$point3.'"]';
+
         return [
             'name' => $this->faker->word,
             'name_ar' => $this->faker->word,
-            'features' => $this->faker->word,
-            'features_ar' => $this->faker->word,
-            'image_url' => $this->faker->imageUrl(),
+            'points' => $points,
+            'points_ar' => $points,
+            'description' => $this->faker->text,
+            'description_ar' => $this->faker->text,
+            'features' => $this->faker->text,
+            'features_ar' => $this->faker->text,
+            'image_url' => 'http://127.0.0.1:8000/storage/specs_images/gh1pf7x0BseMEakFqKgN0ytQnlMR8RWgirs3EquA.jpg',
             'category_id' => $this->faker->numberBetween(1, 5),
         ];
     }

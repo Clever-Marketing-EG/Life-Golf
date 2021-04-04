@@ -11,12 +11,6 @@ use Illuminate\Http\Response;
 class CategoryController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth:api', ['except' => ['index', 'show']]);
-    }
-
-
     /**
      * Display a listing of the resource.
      *
@@ -110,5 +104,14 @@ class CategoryController extends Controller
                 'message' => $e->getMessage()
             ]);
         }
+    }
+
+
+    public function products(Category $category)
+    {
+        return response()->json([
+            'success' => true,
+            'data' => array_slice($category->products->toArray(), 0, 5),
+        ]);
     }
 }

@@ -10,10 +10,6 @@ use Exception;
 
 class GalleryController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:api', ['except' => ['index', 'show' , 'filter']]);
-    }
 
     /**
      * Display a listing of the resource.
@@ -59,15 +55,6 @@ class GalleryController extends Controller
      */
     public function show(Gallery $gallery): JsonResponse
     {
-        return response()->json([
-            'success' => true,
-            'data' => $gallery
-        ]);
-    }
-
-    public function filter($type): JsonResponse
-    {
-        $gallery = Gallery::where('type', $type)->get();
         return response()->json([
             'success' => true,
             'data' => $gallery
