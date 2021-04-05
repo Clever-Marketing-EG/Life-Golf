@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Exception;
-use Illuminate\Http\JsonResponse; 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -111,7 +111,7 @@ class CategoryController extends Controller
     {
         return response()->json([
             'success' => true,
-            'data' => array_slice($category->products->toArray(), 0, 5),
+            'data' => $category->products,
         ]);
     }
 }
