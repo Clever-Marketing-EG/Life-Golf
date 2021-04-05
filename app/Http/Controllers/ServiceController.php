@@ -125,14 +125,14 @@ class ServiceController extends Controller
         ]);
     }
 
-    // public function filter($type): JsonResponse
-    // {
-    //     $services = Service::where('type', $type)->get();
-    //     return response()->json([
-    //         'success' => true,
-    //         'data' => $services
-    //     ]);
-    // }
+    public function filter($name): JsonResponse
+    {
+        $services = Service::where('name', $name)->get();
+        return response()->json([
+            'success' => true,
+            'data' => $services
+        ]);
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -161,7 +161,7 @@ class ServiceController extends Controller
             'image_url_3' => 'url'
 
         ]);
-        
+
         $pointsArray = explode(',', request('points'));
         $points = '[';
         foreach ($pointsArray as $point) {

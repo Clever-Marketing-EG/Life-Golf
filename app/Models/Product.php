@@ -93,6 +93,7 @@ class Product extends Model
         return $product;
 
     }
+    
     /**
      * Returns the images of this product
      *

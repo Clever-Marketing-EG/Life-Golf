@@ -1,5 +1,6 @@
 
 <?php
+
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TermsController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\FormsController;
 use App\Models\Meta;
 
 /*
@@ -32,6 +34,7 @@ use App\Models\Meta;
 | Products Routes
 |--------------------------------------------------------------------------
 */
+
 Route::apiResource('products', ProductController::class);
 Route::post('/images/products', [ImagesController::class, 'products'])->name('products.images');
 
@@ -61,6 +64,7 @@ Route::apiResource('term', TermsController::class);
 */
 Route::apiResource('services', ServiceController::class);
 Route::post('/images/services', [ImagesController::class, 'services'])->name('services.images');
+Route::get('services/service/{name}', [ServiceController::class, 'filter']);
 
 /*
 |---------------------------------------------------------------------------
@@ -106,6 +110,14 @@ Route::post('/images/articles', [ImagesController::class, 'articles'])->name('ar
 Route::get('/meta', [MetaController::class, 'index'])->name('meta.index');
 Route::patch('/meta/update/{meta}', [MetaController::class, 'update'])->name('meta.update');
 Route::post('/images/meta', [ImagesController::class, 'meta'])->name('meta.images');
+
+/*
+|---------------------------------------------------------------------------
+| Mailing Routes
+|--------------------------------------------------------------------------
+*/
+Route::post('/mail/contact-us', [FormsController::class, 'contactUs'])->name('mail.contact');
+
 
 /*
 /*--------------------------------------------------------------------------
