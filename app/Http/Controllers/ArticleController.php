@@ -53,7 +53,7 @@ class ArticleController extends Controller
         $article['content_ar'] = $validated['content_ar'];
         $article['image_url'] = $validated['image_url'];
         $article['category_id'] = $validated['category_id'];
-        
+
         return response()->json([
             'success' => true,
             'data' => $article
@@ -71,7 +71,7 @@ class ArticleController extends Controller
         $article = $article->load('category:id,name,name_ar');
         return response()->json([
             'success' => true,
-            'data' => $article  
+            'data' => $article
         ]);
     }
 
