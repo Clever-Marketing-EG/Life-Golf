@@ -23,7 +23,7 @@ class CategorySeeder extends Seeder
             ],
             [
                 'name' => 'Electric Vehicle',
-                'name_ar' => 'وسائل مواصلات كهربائية',
+                'name_ar' => ' مواصلات كهربائية',
                 'image_url' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/bus_1616945137.png',
             ],
             [

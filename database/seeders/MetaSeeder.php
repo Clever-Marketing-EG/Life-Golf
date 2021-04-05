@@ -521,7 +521,7 @@ class MetaSeeder extends Seeder
             ],
             [
                 'name' => 'electronic_payment',
-                'content' => 'Payment details',
+                'content' => 'Cash on delivery',
                 'content_ar' => 'محتوى',
                 'type' => 'text',
                 'page' => 'electronics'
@@ -560,7 +560,7 @@ class MetaSeeder extends Seeder
                 'type' => 'text',
                 'page' => 'customize'
             ],
-            
+
         );
         $contactData = array(
             [
