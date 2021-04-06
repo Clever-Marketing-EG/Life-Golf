@@ -116,9 +116,17 @@ Route::post('/images/meta', [ImagesController::class, 'meta'])->name('meta.image
 | Mailing Routes
 |--------------------------------------------------------------------------
 */
-Route::post('/mail/contact-us', [FormsController::class, 'contactUs'])->name('mail.contact');
-Route::post('/mail/customize', [FormsController::class, 'customize'])->name('mail.customize');
-Route::post('/mail/order', [FormsController::class, 'order'])->name('mail.order');
+Route::group([
+    'prefix' => 'mail'
+], function () {
+
+    Route::post('/contact-us', [FormsController::class, 'contactUs'])
+        ->name('mail.contact');
+    Route::post('/customize', [FormsController::class, 'customize'])
+        ->name('mail.customize');
+    Route::post('/order', [FormsController::class, 'order'])
+        ->name('mail.order');
+});
 
 
 /*
