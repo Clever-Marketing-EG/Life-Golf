@@ -3,13 +3,14 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class CustomizeMail extends Mailable
+
+class OrderMail extends Mailable
 {
     use Queueable, SerializesModels;
-
 
     public $data;
 
@@ -31,7 +32,7 @@ class CustomizeMail extends Mailable
     public function build()
     {
         return $this->from(MAIL_FROM)
-            ->subject('New Customized Golf Cart Order')
-            ->view('mails.customize');
+            ->subject('New Order from Life Golf')
+            ->view('mails.order');
     }
 }

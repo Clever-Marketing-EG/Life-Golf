@@ -134,7 +134,7 @@
                                                 style="font-size:0px;padding:0px 25px;word-break:break-word;">
                                                 <div
                                                     style="color:white;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:16px;line-height:20px;">
-                                                    Subject: {{ $data['subject'] }}
+                                                    Product: {{ $data['product'] }}
                                                 </div>
                                             </td>
                                         </tr>
@@ -143,7 +143,9 @@
                                                 style="font-size:0px;padding:10px 25px;word-break:break-word; padding-bottom: 2rem;">
                                                 <div
                                                     style="color:#187272;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:20px;line-height:20px;text-align:center;">
-                                                    {{ $data['body'] }}
+                                                    @if (isset($data['additional_information']))
+                                                        {{ $data['additional_information'] }}
+                                                    @endif
                                                 </div>
                                             </td>
                                         </tr>
@@ -152,7 +154,25 @@
                                                 style="font-size:0px;padding:0px 25px;word-break:break-word;">
                                                 <div
                                                     style="color:white;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:16px;line-height:20px;">
-                                                    From: {{ $data['from'] }}
+                                                    Name: {{ $data['name'] }}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left"
+                                                style="font-size:0px;padding:0px 25px;word-break:break-word;">
+                                                <div
+                                                    style="color:white;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:16px;line-height:20px;">
+                                                    Email: {{ $data['email'] }}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left"
+                                                style="font-size:0px;padding:0px 25px;word-break:break-word;">
+                                                <div
+                                                    style="color:white;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:16px;line-height:20px;">
+                                                    Phone: {{ $data['phone'] }}
                                                 </div>
                                             </td>
                                         </tr>
