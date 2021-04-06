@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -63,5 +64,14 @@ class ProductController extends Controller
                 'message' => $e->getMessage()
             ]);
         }
+    }
+
+    public function destroyImage(Image $image)
+    {
+        $image->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'Image deleted successfully'
+        ]);
     }
 }

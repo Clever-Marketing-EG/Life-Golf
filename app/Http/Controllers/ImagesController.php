@@ -28,12 +28,12 @@ class ImagesController extends Controller
             'name' => 'required|string|min:3'
         ]);
 
-        $imageName = $request['name'].'_'.time().'.'.$request['image']->extension();
+        $imageName = $request['name'] . '_' . time() . '.' . $request['image']->extension();
         $request['image']->storeAs('public/categories_images', $imageName);
 
         return response()->json([
             "success" => true,
-            'image_url' => asset('storage/categories_images/'.$imageName)
+            'image_url' => asset('storage/categories_images/' . $imageName)
         ]);
     }
 
@@ -54,7 +54,7 @@ class ImagesController extends Controller
 
         return response()->json([
             "success" => true,
-            'image_url' => asset('storage/'.$path)
+            'image_url' => asset('storage/' . $path)
         ]);
     }
 
@@ -75,7 +75,7 @@ class ImagesController extends Controller
 
         return response()->json([
             "success" => true,
-            'image_url' => asset('storage/'.$path)
+            'image_url' => asset('storage/' . $path)
         ]);
     }
     /**
@@ -94,10 +94,10 @@ class ImagesController extends Controller
 
         return response()->json([
             "success" => true,
-            'image_url' => asset('storage/'.$path)
+            'image_url' => asset('storage/' . $path)
         ]);
     }
-      /**
+    /**
      * Save Gallery Image
      *
      * @param Request $request
@@ -113,10 +113,10 @@ class ImagesController extends Controller
 
         return response()->json([
             "success" => true,
-            'image_url' => asset('storage/'.$path)
+            'image_url' => asset('storage/' . $path)
         ]);
     }
-       /**
+    /**
      * Save services Image
      *
      * @param Request $request
@@ -132,7 +132,7 @@ class ImagesController extends Controller
 
         return response()->json([
             "success" => true,
-            'image_url' => asset('storage/'.$path)
+            'image_url' => asset('storage/' . $path)
         ]);
     }
 
@@ -161,11 +161,11 @@ class ImagesController extends Controller
             'product_id' => 'required|integer|exists:products,id'
         ]);
 
-        $imageName = $this->generateRandomString().'_'.time().'.'.$request['image']->extension();
+        $imageName = $this->generateRandomString() . '_' . time() . '.' . $request['image']->extension();
         $request['image']->storeAs('public/products_images', $imageName);
 
         $image = new Image();
-        $image['url'] = asset('storage/products_images/'.$imageName);
+        $image['url'] = asset('storage/products_images/' . $imageName);
         $image['product_id'] = $validated['product_id'];
         $image->save();
 
@@ -189,11 +189,11 @@ class ImagesController extends Controller
             'name' => 'required|string|min:3'
         ]);
 
-        $imageName = $request['name'].'_'.time().'.'.$request['image']->extension();
+        $imageName = $request['name'] . '_' . time() . '.' . $request['image']->extension();
         $request['image']->storeAs('public/articles_images', $imageName);
         return response()->json([
             "success" => true,
-            'image_url' => asset('storage/articles_images/'.$imageName)
+            'image_url' => asset('storage/articles_images/' . $imageName)
         ]);
     }
     /**
@@ -208,11 +208,11 @@ class ImagesController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:100240',
             'name' => 'required|string|min:3'
         ]);
-        $imageName = $request['name'].'_'.time().'.'.$request['image']->extension();
+        $imageName = $request['name'] . '_' . time() . '.' . $request['image']->extension();
         $request['image']->storeAs('public/meta_images', $imageName);
         return response()->json([
             "success" => true,
-            'image_url' => asset('storage/meta_images/'.$imageName)
+            'image_url' => asset('storage/meta_images/' . $imageName)
         ]);
     }
 }

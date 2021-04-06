@@ -37,7 +37,7 @@ use App\Models\Meta;
 
 Route::apiResource('products', ProductController::class);
 Route::post('/images/products', [ImagesController::class, 'products'])->name('products.images');
-
+Route::delete('/images/products/{image}', [ProductController::class, 'destroyImage']);
 Route::post('/images/specs', [ImagesController::class, 'specs'])->name('products.specs.images');
 
 
