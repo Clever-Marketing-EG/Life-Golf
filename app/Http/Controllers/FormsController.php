@@ -43,7 +43,7 @@ class FormsController extends Controller
             'cart' => 'required|string|min:3',
             'seats' => 'required|integer|min:2',
             'color' => 'required|string|min:3',
-            'speed' => 'required|number|min:10',
+            'speed' => 'required|integer|min:10',
             'type' => 'required|string|min:3'
         ]);
 
