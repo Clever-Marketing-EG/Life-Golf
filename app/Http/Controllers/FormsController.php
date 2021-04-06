@@ -29,4 +29,20 @@ class FormsController extends Controller
             'data' => "Thanks for contacting us!"
         ]);
     }
+
+
+    public function customize(Request $request)
+    {
+        $data = $request->validate([
+            'email' => 'required|min:3|email|string',
+            'from' => 'required|min:3|string',
+            'subject' => 'required|min:3|string',
+            'data' => 'required|array|min:1',
+            'data.*' => 'required|distinct|string'
+        ]);
+
+        dd($data);
+
+        // Mail:to(MAIL_TO)->send(new )
+    }
 }

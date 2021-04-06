@@ -539,6 +539,13 @@ class MetaSeeder extends Seeder
                 'content_ar' => 'محتوى',
                 'type' => 'text',
                 'page' => 'electronics'
+            ],
+            [
+                'name' => 'image_1',
+                'content' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'content_ar' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'type' => 'image',
+                'page' => 'electronics'
             ]
         );
         $customData = array(
@@ -560,6 +567,13 @@ class MetaSeeder extends Seeder
                 'type' => 'text',
                 'page' => 'customize'
             ],
+            [
+                'name' => 'image_1',
+                'content' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'content_ar' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/about_us_1616949002.jpg',
+                'type' => 'image',
+                'page' => 'customize'
+            ]
 
         );
         $contactData = array(
