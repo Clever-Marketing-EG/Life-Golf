@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactEmail;
 use App\Mail\OrderMail;
+use App\Mail\CustomizeMail;
 
 define('MAIL_TO', env('MAIL_RECEIVER', 'tech@clevermarketing-eg.com'));
 define('MAIL_FROM', env('MAIL_FROM', 'info@life-golf.com'));
@@ -47,9 +48,13 @@ class FormsController extends Controller
             'type' => 'required|string|min:3'
         ]);
 
-        dd($data);
 
-        // Mail:to(MAIL_TO)->send(new )
+        Mail::to(MAIL_TO)->send(new CustomizeMail($data));
+
+        return response()->json([
+            'success' => true,
+            'data' => "Thanks you! One of our team will contact you soon!"
+        ]);
     }
 
 

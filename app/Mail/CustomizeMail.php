@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactEmail extends Mailable
+class CustomizeMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,8 +30,8 @@ class ContactEmail extends Mailable
      */
     public function build()
     {
-        return $this->from($this->data['email'])
-            ->subject($this->data['subject'])
+        return $this->from(MAIL_FROM)
+            ->subject('New Customized Golf Cart Order')
             ->view('mails.customize');
     }
 }
