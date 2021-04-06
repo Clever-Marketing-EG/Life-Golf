@@ -143,7 +143,9 @@
                                                 style="font-size:0px;padding:10px 25px;word-break:break-word; padding-bottom: 2rem;">
                                                 <div
                                                     style="color:#187272;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:20px;line-height:20px;text-align:center;">
-                                                    {{ $data['additional_information'] }}
+                                                    @if (isset($data['additional_information']))
+                                                        {{ $data['additional_information'] }}
+                                                    @endif
                                                 </div>
                                             </td>
                                         </tr>

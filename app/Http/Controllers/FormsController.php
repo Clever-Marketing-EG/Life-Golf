@@ -63,7 +63,7 @@ class FormsController extends Controller
 
         return response()->json([
             'success' => true,
-            'data' => "Thanks for contacting us!"
+            'data' => "Thank You! One of our team will contact you soon!"
         ]);
     }
 }
