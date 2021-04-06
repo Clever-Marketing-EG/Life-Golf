@@ -18,7 +18,7 @@ class ArticleController extends Controller
     public function index(): JsonResponse
     {
         $articles = Article::latest()->with('category:id,name,name_ar')->paginate(30)->toArray();
-        
+
         return response()->json(array_merge(
             ['success' => true],
             $articles
@@ -50,11 +50,8 @@ class ArticleController extends Controller
         $article['content_ar'] = $validated['content_ar'];
         $article['image_url'] = $validated['image_url'];
         $article['category_id'] = $validated['category_id'];
-<<<<<<< HEAD
-        
+
         $article->save();
-=======
->>>>>>> ef39be5f8f91fe4a2d30e5b1718e4fb35cceef1a
 
         return response()->json([
             'success' => true,

@@ -126,7 +126,7 @@
                                                 style="font-size:0px;padding:10px 25px;word-break:break-word;">
                                                 <div
                                                     style="color:#FFFFFF;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:36px;line-height:1;text-align:center;">
-                                                    Notification From Life GOlf</div>
+                                                    Notification From Life Golf</div>
                                             </td>
                                         </tr>
                                         <tr>
