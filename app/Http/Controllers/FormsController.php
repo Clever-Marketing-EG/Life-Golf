@@ -36,11 +36,15 @@ class FormsController extends Controller
     public function customize(Request $request)
     {
         $data = $request->validate([
-            'email' => 'required|min:3|email|string',
-            'from' => 'required|min:3|string',
-            'subject' => 'required|min:3|string',
-            'data' => 'required|array|min:1',
-            'data.*' => 'required|distinct|string'
+            'first_name' => 'required|min:3|string',
+            'last_name' => 'required|min:3|string',
+            'email' => 'required|email|min:3|string',
+            'phone' => 'required|numeric|min:3',
+            'cart' => 'required|string|min:3',
+            'seats' => 'required|integer|min:2',
+            'color' => 'required|string|min:3',
+            'speed' => 'required|number|min:10',
+            'type' => 'required|string|min:3'
         ]);
 
         dd($data);
