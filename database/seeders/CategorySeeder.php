@@ -18,7 +18,7 @@ class CategorySeeder extends Seeder
         $data = array(
             [
                 'name' => 'Golf Cart & Utility',
-                'name_ar' => 'سيارات الجلف ومُلزماتها',
+                'name_ar' => 'سيارات الجولف ومُلزماتها',
                 'image_url' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/cart_1616944893.png',
             ],
             [
