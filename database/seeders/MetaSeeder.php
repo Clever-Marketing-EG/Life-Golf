@@ -421,8 +421,8 @@ class MetaSeeder extends Seeder
         $footerData = array(
             [
                 'name' => 'content',
-                'content' => 'This is footer content!',
-                'content_ar' => 'محتوى',
+                'content' => 'We can assure for your good self-perfection & Luxurious models that our company distributes in the market as we consider our client is our partner in success and deserve to be treated like a prince.',
+                'content_ar' => 'يمكننا أن نؤكد لكم الكمال في كل خدمة نقدمها والنماذج الفاخرة التي توزعها شركتنا في السوق، حيث نعتبر أن عميلنا هو شريكنا في النجاح ويستحق أن يُعامل مثل الأمير.',
                 'type' => 'text',
                 'page' => 'footer'
             ],
