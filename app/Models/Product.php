@@ -50,10 +50,11 @@ class Product extends Model
             'features' => 'required|min:3|string',
             'features_ar' => 'required|min:3|string',
             'image_url'  => 'required|min:3|url',
+            'configuration_image_url' => 'url',
             'category_id' => 'required|integer|exists:categories,id'
         ]);
-        
-    
+
+
         $product['name'] = $validated['name'];
         $product['name_ar'] = $validated['name_ar'];
         $product['features'] = $validated['features'];
@@ -87,13 +88,14 @@ class Product extends Model
 
         $product['points_ar'] = $points;
         $product['image_url'] = $validated['image_url'];
+        $product['configuration_image_url'] = $validated['configuration_image_url'];
         $product['category_id'] = $validated['category_id'];
 
         $product->save();
         return $product;
 
     }
-    
+
     /**
      * Returns the images of this product
      *
