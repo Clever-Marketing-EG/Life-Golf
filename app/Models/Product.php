@@ -50,7 +50,7 @@ class Product extends Model
             'features' => 'required|min:3|string',
             'features_ar' => 'required|min:3|string',
             'image_url'  => 'required|min:3|url',
-            'configuration_image_url' => 'url',
+            'configuration_image_url' => 'url|nullable',
             'category_id' => 'required|integer|exists:categories,id'
         ]);
 
