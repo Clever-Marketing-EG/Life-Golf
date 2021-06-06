@@ -17,7 +17,7 @@ class ArticleController extends Controller
      */
     public function index(): JsonResponse
     {
-        $articles = Article::latest()->with('category:id,name,name_ar')->paginate(30)->toArray();
+        $articles = Article::latest()->with('name,name_ar')->paginate(30)->toArray();
 
         return response()->json(array_merge(
             ['success' => true],
@@ -38,8 +38,7 @@ class ArticleController extends Controller
             'title_ar' => 'required|min:3|string',
             'content' => 'required|min:3|string',
             'content_ar' => 'required|min:3|string',
-            'image_url' => 'required|url',
-            'category_id' => 'required|integer|exists:categories,id'
+            'image_url' => 'required|url'
 
         ]);
 
@@ -49,7 +48,6 @@ class ArticleController extends Controller
         $article['content'] = $validated['content'];
         $article['content_ar'] = $validated['content_ar'];
         $article['image_url'] = $validated['image_url'];
-        $article['category_id'] = $validated['category_id'];
 
         $article->save();
 
@@ -67,7 +65,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article): JsonResponse
     {
-        $article = $article->load('category:id,name,name_ar');
+        $article = $article->load('name,name_ar');
         return response()->json([
             'success' => true,
             'data' => $article
@@ -88,8 +86,7 @@ class ArticleController extends Controller
             'title_ar' => 'min:3|string',
             'content' => 'min:3|string',
             'content_ar' => 'min:3|string',
-            'image_url' => 'url',
-            'category_id' => 'integer|exists:categories,id'
+            'image_url' => 'url'
         ]);
 
         $article->update($validated);
