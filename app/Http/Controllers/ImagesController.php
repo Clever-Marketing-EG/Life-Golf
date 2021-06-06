@@ -37,6 +37,28 @@ class ImagesController extends Controller
         ]);
     }
 
+    /**
+     * Save Category image
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function subcategories(Request $request): JsonResponse
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'name' => 'required|string|min:3'
+        ]);
+
+        $imageName = $request['name'] . '_' . time() . '.' . $request['image']->extension();
+        $request['image']->storeAs('public/subcategories_images', $imageName);
+
+        return response()->json([
+            "success" => true,
+            'image_url' => asset('storage/subcategories_images/' . $imageName)
+        ]);
+    }
+
 
     /**
      * Save Product Specs image

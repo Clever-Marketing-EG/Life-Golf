@@ -59,7 +59,7 @@ Route::post('/images/categories', [ImagesController::class, 'categories'])->name
 */
 Route::apiResource('subcategories', SubCategoryController::class);
 Route::get('/subcategories/{subcategory}/products', [SubCategoryController::class, 'products']);
-// Route::post('/images/categories', [ImagesController::class, 'categories'])->name('categories.images');
+Route::post('/images/subcategories', [ImagesController::class, 'subcategories'])->name('subcategories.images');
 
 /*
 |---------------------------------------------------------------------------
