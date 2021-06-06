@@ -17,7 +17,7 @@ class ArticleController extends Controller
      */
     public function index(): JsonResponse
     {
-        $articles = Article::latest()->with('name,name_ar')->paginate(30)->toArray();
+        $articles = Article::latest()->paginate(30)->toArray();
 
         return response()->json(array_merge(
             ['success' => true],
@@ -65,7 +65,6 @@ class ArticleController extends Controller
      */
     public function show(Article $article): JsonResponse
     {
-        $article = $article->load('name,name_ar');
         return response()->json([
             'success' => true,
             'data' => $article
