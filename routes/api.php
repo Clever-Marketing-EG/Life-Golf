@@ -10,6 +10,7 @@ use App\Http\Controllers\MetaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TermsController;
 use App\Http\Controllers\VideoController;
@@ -47,8 +48,18 @@ Route::post('/images/specs', [ImagesController::class, 'specs'])->name('products
 |--------------------------------------------------------------------------
 */
 Route::apiResource('categories', CategoryController::class);
-Route::get('/categories/{category}/products', [CategoryController::class, 'products']);
+Route::get('/categories/{category}/subcategories', [CategoryController::class, 'subcategories']);
 Route::post('/images/categories', [ImagesController::class, 'categories'])->name('categories.images');
+
+
+/*
+|---------------------------------------------------------------------------
+| SubCategories Routes
+|--------------------------------------------------------------------------
+*/
+Route::apiResource('subcategories', SubCategoryController::class);
+Route::get('/subcategories/{subcategory}/products', [SubCategoryController::class, 'products']);
+// Route::post('/images/categories', [ImagesController::class, 'categories'])->name('categories.images');
 
 /*
 |---------------------------------------------------------------------------
