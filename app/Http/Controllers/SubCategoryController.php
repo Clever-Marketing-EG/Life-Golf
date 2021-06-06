@@ -40,7 +40,9 @@ class SubCategoryController extends Controller
             'name_ar' => 'required|min:3|string',
             'content' => 'required|min:3|string',
             'content_ar' => 'required|min:3|string',
-            'image_url' => 'required|url'
+            'image_url' => 'required|url',
+            'category_id' => 'required|integer|exists:categories,id'
+
         ]);
         $subcategory = SubCategory::create($validated);
         return response()->json([
@@ -77,7 +79,9 @@ class SubCategoryController extends Controller
             'name_ar' => 'min:3|string',
             'content' => 'min:3|string',
             'content_ar' => 'min:3|string',
-            'image_url' => 'url'
+            'image_url' => 'url',
+            'category_id' => 'integer|exists:categories,id'
+
         ]);
 
         $subcategory->update($validated);

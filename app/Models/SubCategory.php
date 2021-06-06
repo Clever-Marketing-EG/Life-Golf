@@ -15,7 +15,8 @@ class SubCategory extends Model
         'name_ar',
         'content',
         'content_ar',
-        'image_url'
+        'image_url',
+        'category_id'
     ];
 
     /**

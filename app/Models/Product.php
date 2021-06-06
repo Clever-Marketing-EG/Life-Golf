@@ -51,7 +51,7 @@ class Product extends Model
             'features_ar' => 'required|min:3|string',
             'image_url'  => 'required|min:3|url',
             'configuration_image_url' => 'url|nullable',
-            'category_id' => 'required|integer|exists:categories,id'
+            'sub_category_id' => 'required|integer|exists:sub_categories,id'
         ]);
 
 
@@ -89,7 +89,7 @@ class Product extends Model
         $product['points_ar'] = $points;
         $product['image_url'] = $validated['image_url'];
         $product['configuration_image_url'] = $validated['configuration_image_url'];
-        $product['category_id'] = $validated['category_id'];
+        $product['sub_category_id'] = $validated['sub_category_id'];
 
         $product->save();
         return $product;
