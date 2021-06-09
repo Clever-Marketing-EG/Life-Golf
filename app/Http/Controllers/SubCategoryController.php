@@ -35,16 +35,10 @@ class SubCategoryController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
-        $validated = $request->validate([
-            'name' => 'required|min:3|string',
-            'name_ar' => 'required|min:3|string',
-            'content' => 'required|min:3|string',
-            'content_ar' => 'required|min:3|string',
-            'image_url' => 'required|url',
-            'category_id' => 'required|integer|exists:categories,id'
+        $validated = SubCategory::validate($request);
 
-        ]);
         $subcategory = SubCategory::create($validated);
+
         return response()->json([
             'success' => true,
             'data' => $subcategory
@@ -74,15 +68,7 @@ class SubCategoryController extends Controller
      */
     public function update(Request $request, SubCategory $subcategory): JsonResponse
     {
-        $validated = $request->validate([
-            'name' => 'min:3|string',
-            'name_ar' => 'min:3|string',
-            'content' => 'min:3|string',
-            'content_ar' => 'min:3|string',
-            'image_url' => 'url',
-            'category_id' => 'integer|exists:categories,id'
-
-        ]);
+        $validated = SubCategory::validate($request);
 
         $subcategory->update($validated);
 
@@ -116,7 +102,7 @@ class SubCategoryController extends Controller
     }
 
 
-    public function products(SubCategory $subcategory)
+    public function products(SubCategory $subcategory): JsonResponse
     {
         return response()->json([
             'success' => true,

@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Http\Request;
 
 class SubCategory extends Model
 {
@@ -21,8 +23,26 @@ class SubCategory extends Model
     {
         return $this->hasMany(Product::class);
     }
-    public function category()
+
+
+    /**
+     * relation to categories
+     *
+     * @return BelongsTo
+     */
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+
+    public static function validate(Request $request): array
+    {
+        return $request->validate([
+            'name' => 'required|min:3|string',
+            'name_ar' => 'required|min:3|string',
+            'image_url' => 'required|url',
+            'category_id' => 'required|integer|exists:categories,id'
+        ]);
     }
 }
