@@ -17,8 +17,6 @@ class CreateSubCategoriesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('name_ar');
-            $table->text('content');
-            $table->text('content_ar');
             $table->string('image_url');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
 
