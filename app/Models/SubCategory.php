@@ -10,14 +10,7 @@ class SubCategory extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'name_ar',
-        'content',
-        'content_ar',
-        'image_url',
-        'category_id'
-    ];
+    protected $guarded = [];
 
     /**
      * Relation to products
