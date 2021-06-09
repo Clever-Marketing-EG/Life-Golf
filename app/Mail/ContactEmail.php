@@ -32,6 +32,7 @@ class ContactEmail extends Mailable
     {
         return $this->from($this->data['email'])
             ->subject($this->data['subject'])
+            
             ->view('mails.contact');
     }
 }

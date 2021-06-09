@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\ArticleCategory;
+use App\Models\SubCategory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
             // ArticleSeeder::class,
             UserSeeder::class,
             MetaSeeder::class,
+            // SubCategorySeeder::class
             // ServiceSeeder::class,
             // CertificateSeeder::class,
             // VideoSeeder::class,
