@@ -17,8 +17,8 @@ class CreateTermsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('name_ar');
-            $table->string('desc');
-            $table->string('desc_ar');
+            $table->text('desc');
+            $table->text('desc_ar');
             $table->timestamps();
         });
     }

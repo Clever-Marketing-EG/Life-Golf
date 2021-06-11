@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
 use Mockery\Exception;
@@ -13,14 +14,17 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-        'name_ar',
-    ];
+    protected $guarded = [];
 
 
     protected $with = ['images'];
 
+    protected $casts = [
+        'points' => 'array',
+        'points_ar' => 'array',
+        'features' => 'array',
+        'features_ar' => 'array'
+    ];
 
     /**
      * Get the images for the product.
@@ -35,21 +39,24 @@ class Product extends Model
      * validates product information
      *
      * @param Request $request
-     * @param Product $product
-     * @return Product
+     * @return array
      */
-    public static function validateProduct(Request $request, Product $product): Product
+    public static function validate(Request $request): array
     {
-        $validated = $request->validate([
+        return $request->validate([
             'name' => 'required|min:3|string',
             'name_ar' => 'required|min:3|string',
             'description' => 'required|min:3|string',
             'description_ar' => 'required|min:3|string',
-            'points' =>'required|min:3|string',
-            'points_ar' =>'required|min:3|string',
-            'features' => 'required|min:3|string',
-            'features_ar' => 'required|min:3|string',
-            'image_url'  => 'required|min:3|url',
+            'points' =>'required|array|min:1',
+            'points.*' =>'required|string|min:3',
+            'points_ar' =>'required|array|min:1',
+            'points_ar.*' =>'required|string|min:3',
+            'features' => 'required|array|min:1',
+            'features.*' => 'required|string|min:3',
+            'features_ar' => 'required|array|min:1',
+            'features_ar.*' => 'required|string|min:3',
+            'image_url'  => 'required|url',
             'configuration_image_url' => 'url|nullable',
             'sub_category_id' => 'required|integer|exists:sub_categories,id',
             'category_id' => 'required|integer|exists:categories,id'
@@ -57,6 +64,7 @@ class Product extends Model
 
         ]);
 
+<<<<<<< HEAD
 
         $product['name'] = $validated['name'];
         $product['name_ar'] = $validated['name_ar'];
@@ -99,15 +107,13 @@ class Product extends Model
         $product->save();
         return $product;
 
+=======
+>>>>>>> 86cb0642a1d03a6a25f203dc318b8b6107d30064
     }
 
-    /**
-     * Returns the images of this product
-     *
-     * @return Product
-     */
-    public function getImages()
+
+    public function subCategory(): BelongsTo
     {
-//        return $this->load
+        return $this->belongsTo(SubCategory::class);
     }
 }

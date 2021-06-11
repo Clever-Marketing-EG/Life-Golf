@@ -21,6 +21,7 @@ class FormsController extends Controller
         $data = $request->validate([
             'email' => 'required|min:3|email|string',
             'body' => 'required|min:3|string',
+            'phone' => 'required|numeric|min:3',
             'from' => 'required|min:3|string',
             'subject' => 'required|min:3|string'
         ]);

@@ -17,8 +17,8 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('name_ar');
-            $table->json('points');
-            $table->json('points_ar');
+            $table->text('points');
+            $table->text('points_ar');
             $table->text('description');
             $table->text('description_ar');
             $table->text('features');

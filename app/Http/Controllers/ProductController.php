@@ -25,8 +25,9 @@ class ProductController extends Controller
 
     public function store(Request $request): JsonResponse
     {
-        $product = new Product();
-        $product = Product::validateProduct($request, $product);
+        $validated = Product::validate($request);
+
+        $product = Product::create($validated);
 
         return response()->json([
             'success' => true,
@@ -44,7 +45,7 @@ class ProductController extends Controller
 
     public function update(Product $product, Request $request): JsonResponse
     {
-        $product = Product::validateProduct($request, $product);
+        $validated = Product::validate($request);
 
         return response()->json([
             'success' => true,
