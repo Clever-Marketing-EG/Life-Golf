@@ -16,6 +16,13 @@ class MetaSeeder extends Seeder
     {
         $homeData = array(
             [
+                'name' => 'partner_img',
+                'content' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/cart_1616944915.png',
+                'content_ar' => 'http://life-golf.cloveregypt.com/be/public/storage/meta_images/cart_1616944915.png',
+                'type' => 'image',
+                'page' => 'home'
+            ],
+            [
                 'name' => 'golf_carts_header',
                 'content' => 'Golf Carts Header',
                 'content_ar' => 'محتوى',
