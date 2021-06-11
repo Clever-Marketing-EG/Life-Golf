@@ -16,6 +16,7 @@ use App\Http\Controllers\TermsController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\FormsController;
+use App\Http\Controllers\PartnerController;
 use App\Models\Meta;
 
 /*
@@ -51,6 +52,13 @@ Route::apiResource('categories', CategoryController::class);
 Route::get('/categories/{category}/subcategories/{subcategory}/products', [CategoryController::class, 'subcategories']);
 Route::post('/images/categories', [ImagesController::class, 'categories'])->name('categories.images');
 
+/*
+|---------------------------------------------------------------------------
+| partners Routes
+|--------------------------------------------------------------------------
+*/
+Route::apiResource('partners', PartnerController::class);
+Route::post('/images/partners', [ImagesController::class, 'partners'])->name('partners.images');
 
 /*
 |---------------------------------------------------------------------------

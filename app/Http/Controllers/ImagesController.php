@@ -36,6 +36,27 @@ class ImagesController extends Controller
             'image_url' => asset('storage/categories_images/' . $imageName)
         ]);
     }
+ /**
+     * Save partner image
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function partners(Request $request): JsonResponse
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'name' => 'required|string|min:3'
+        ]);
+
+        $imageName = $request['name'] . '_' . time() . '.' . $request['image']->extension();
+        $request['image']->storeAs('public/partners_images', $imageName);
+
+        return response()->json([
+            "success" => true,
+            'image_url' => asset('storage/partners_images/' . $imageName)
+        ]);
+    }
 
     /**
      * Save Category image
