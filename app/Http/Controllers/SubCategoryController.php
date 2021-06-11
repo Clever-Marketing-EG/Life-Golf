@@ -123,4 +123,5 @@ class SubCategoryController extends Controller
             'data' => $subcategory->products,
         ]);
     }
+
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\SubCategory;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -107,11 +108,11 @@ class CategoryController extends Controller
     }
 
 
-    public function subcategories(Category $category)
+    public function subcategories(Category $category, SubCategory $subcategory)
     {
         return response()->json([
             'success' => true,
-            'data' => $category->subcategories,
+            'data' => $category->$subcategory->products,
         ]);
     }
 }

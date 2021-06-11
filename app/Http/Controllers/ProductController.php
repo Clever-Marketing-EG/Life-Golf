@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Image;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\SubCategory;
 
 class ProductController extends Controller
 {
@@ -74,4 +76,9 @@ class ProductController extends Controller
             'message' => 'Image deleted successfully'
         ]);
     }
+
+    // public function filter(Category $category, SubCategory $category): JsonResponse
+    // {
+
+    // }
 }
