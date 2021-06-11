@@ -22,17 +22,6 @@ class Category extends Model
     {
         return $this->hasMany(SubCategory::class);
     }
-<<<<<<< HEAD
-    /**
-     * Relation to subcategories
-     *
-     * @return HasMany
-     */
-    public function products(): HasMany
-    {
-        return $this->hasMany(Product::class);
-    }
-=======
 
     /**
      * Relation to products
@@ -44,5 +33,4 @@ class Category extends Model
         return $this->hasManyThrough(Product::class, SubCategory::class);
     }
 
->>>>>>> 86cb0642a1d03a6a25f203dc318b8b6107d30064
 }
