@@ -64,51 +64,6 @@ class Product extends Model
 
         ]);
 
-<<<<<<< HEAD
-
-        $product['name'] = $validated['name'];
-        $product['name_ar'] = $validated['name_ar'];
-        $product['features'] = $validated['features'];
-        $product['features_ar'] = $validated['features_ar'];
-        $product['description'] = $validated['description'];
-        $product['description_ar'] = $validated['description_ar'];
-
-        $pointsArray = explode(',', request('points'));
-        $points = '[';
-        foreach ($pointsArray as $point) {
-            $points .= '"' . $point . '"' . ',';
-        }
-        $points = rtrim($points, ",");
-        $points .= ']';
-        $product['points'] = $points;
-
-        $product['name'] = $validated['name'];
-        $product['name_ar'] = $validated['name_ar'];
-        $product['features'] = $validated['features'];
-        $product['features_ar'] = $validated['features_ar'];
-        $product['description'] = $validated['description'];
-        $product['description_ar'] = $validated['description_ar'];
-
-        $pointsArray = explode(',', request('points_ar'));
-        $points = '[';
-        foreach ($pointsArray as $point) {
-            $points .= '"' . $point . '"' . ',';
-        }
-        $points = rtrim($points, ",");
-        $points .= ']';
-
-        $product['points_ar'] = $points;
-        $product['image_url'] = $validated['image_url'];
-        $product['configuration_image_url'] = $validated['configuration_image_url'];
-        $product['sub_category_id'] = $validated['sub_category_id'];
-        $product['category_id'] = $validated['category_id'];
-
-
-        $product->save();
-        return $product;
-
-=======
->>>>>>> 86cb0642a1d03a6a25f203dc318b8b6107d30064
     }
 
 
