@@ -34,9 +34,6 @@ class SubCategory extends Model
     {
         return $this->belongsTo(Category::class);
     }
-<<<<<<< HEAD
-    
-=======
 
 
     public static function validate(Request $request): array
@@ -48,5 +45,4 @@ class SubCategory extends Model
             'category_id' => 'required|integer|exists:categories,id'
         ]);
     }
->>>>>>> 86cb0642a1d03a6a25f203dc318b8b6107d30064
 }
