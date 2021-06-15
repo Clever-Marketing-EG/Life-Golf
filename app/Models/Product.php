@@ -58,8 +58,7 @@ class Product extends Model
             'features_ar.*' => 'required|string|min:3',
             'image_url'  => 'required|url',
             'configuration_image_url' => 'url|nullable',
-            'sub_category_id' => 'required|integer|exists:sub_categories,id',
-            'category_id' => 'required|integer|exists:categories,id'
+            'sub_category_id' => 'required|integer|exists:sub_categories,id'
 
 
         ]);

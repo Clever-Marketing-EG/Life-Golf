@@ -4,27 +4,31 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Service extends Model
 {
+
     use HasFactory;
-    protected $fillable = [
-        'name',
-        'name_ar',
-        'description',
-        'description_ar',
-        'title1',
-        'title1_ar',
-        'title2',
-        'title2_ar',
-        'points',
-        'points_ar',
-        'points_2',
-        'points_2_ar',
-        'image_url',
-        'image_url1',
-        'image_url2',
-        // 'descArray1',
-        // 'descArray2'
-    ];
+
+    protected $guarded = [];
+
+
+    /**
+     * validates product information
+     *
+     * @param Request $request
+     * @return array
+     */
+    public static function validate(Request $request): array
+    {
+        return $request->validate([
+            'name' => 'required|min:3|string',
+            'name_ar' => 'required|min:3|string',
+            'description' => 'required|min:3|string',
+            'description_ar' => 'required|min:3|string',
+            'image_url'  => 'required|url'
+
+        ]);
+    }
 }

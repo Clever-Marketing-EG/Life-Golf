@@ -19,17 +19,7 @@ class CreateServicesTable extends Migration
             $table->string('name_ar');
             $table->text('description');
             $table->text('description_ar');
-            $table->string('title1');
-            $table->string('title1_ar');
-            $table->string('title2');
-            $table->string('title2_ar');
-            $table->json('points')->nullable();
-            $table->json('points_ar')->nullable();
-            $table->json('points_2')->nullable();
-            $table->json('points_2_ar')->nullable();
-            $table->string('image_url_1');
-            $table->string('image_url_2');
-            $table->string('image_url_3');
+            $table->string('image_url');
             $table->timestamps();
         });
     }

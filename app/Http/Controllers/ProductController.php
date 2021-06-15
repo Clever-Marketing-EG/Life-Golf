@@ -46,6 +46,7 @@ class ProductController extends Controller
     public function update(Product $product, Request $request): JsonResponse
     {
         $validated = Product::validate($request);
+        $product->update($validated);
 
         return response()->json([
             'success' => true,
