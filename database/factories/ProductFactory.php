@@ -21,7 +21,7 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
-        
+
         $point1 = $this->faker->text;
         $point2 = $this->faker->text;
         $point3 = $this->faker->text;
@@ -37,7 +37,7 @@ class ProductFactory extends Factory
             'features' => $this->faker->text,
             'features_ar' => $this->faker->text,
             'image_url' => 'http://127.0.0.1:8000/storage/specs_images/gh1pf7x0BseMEakFqKgN0ytQnlMR8RWgirs3EquA.jpg',
-            'category_id' => $this->faker->numberBetween(1, 5),
+            'sub_category_id' => $this->faker->numberBetween(1, 25),
         ];
     }
 }

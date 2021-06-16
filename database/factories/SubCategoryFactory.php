@@ -22,7 +22,10 @@ class SubCategoryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->word,
+            'name_ar' => $this->faker->word,
+            'image_url' => $this->faker->imageUrl(),
+            'category_id' => $this->faker->numberBetween(1, 5)
         ];
     }
 }

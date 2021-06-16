@@ -131,9 +131,7 @@ class CategoryController extends Controller
      */
     public function products(Category $category): JsonResponse
     {
-        return response()->json([
-            'success' => true,
-            'data' => $category->products
-        ]);
+        $products = $category->products()->paginate((int) request()->items);
+        return $this->jsonResponse($products);
     }
 }
