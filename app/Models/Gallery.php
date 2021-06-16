@@ -12,6 +12,5 @@ class Gallery extends Model
         'image_url',
         'description',
         'description_ar',
-        'type'
     ];
 }

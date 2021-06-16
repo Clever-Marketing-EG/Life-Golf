@@ -41,7 +41,6 @@ class VideoController extends Controller
             'title_ar' => 'required|min:3|string',
             'description' => 'required|min:3|string',
             'description_ar' => 'required|min:3|string',
-            // 'type' => 'required|min:3|string'
         ]);
         $video = Video::create($validated);
         return response()->json([
@@ -81,7 +80,6 @@ class VideoController extends Controller
             'title_ar' => 'min:3|string',
             'description' => 'min:3|string',
             'description_ar' => 'min:3|string',
-            // 'type' => 'min:3|string'
         ]);
         $video->update($validated);
         return response()->json([
