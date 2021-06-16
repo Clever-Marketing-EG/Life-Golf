@@ -17,12 +17,12 @@ class Controller extends BaseController
         $this->middleware('auth:api')->only(['store', 'update', 'destroy']);
     }
 
-    public function jsonResponse($data, $status = true): JsonResponse
+    public function jsonResponse($data, int $status = 200): JsonResponse
     {
+        $dataArr = is_array($data) ? $data : [ 'data' => $data ];
         return response()->json(array_merge(
-            ['success' => $status],
-            is_array($data) ? $data : $data->toArray(),
-        ));
-
+            ['success' => true],
+            $dataArr
+        ), $status);
     }
 }

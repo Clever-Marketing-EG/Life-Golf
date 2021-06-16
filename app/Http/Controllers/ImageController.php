@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use App\Models\Image;
-use GrahamCampbell\ResultType\Success;
 
-class ImagesController extends Controller
+class ImageController extends Controller
 {
 
     /**
@@ -28,15 +26,6 @@ class ImagesController extends Controller
         return response()->json([
             'success' => true,
             'image_url' => asset('storage/' . $path)
-        ]);
-    }
-
-    public function destroy(Image $image)
-    {
-        $image->delete();
-        return response()->json([
-            'success' => true,
-            'message' => 'Image deleted successfully'
         ]);
     }
 }

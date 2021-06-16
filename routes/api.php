@@ -5,7 +5,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\CertificateController;
-use App\Http\Controllers\ImagesController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MetaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
@@ -37,9 +37,6 @@ use App\Http\Controllers\PartnerController;
 */
 
 Route::apiResource('products', ProductController::class);
-Route::post('/images/products', [ImagesController::class, 'products'])->name('products.images');
-Route::delete('/images/products/{image}', [ProductController::class, 'destroyImage']);
-// Route::post('/images/specs', [ImagesController::class, 'specs'])->name('products.specs.images');
 
 
 /*
@@ -50,7 +47,6 @@ Route::delete('/images/products/{image}', [ProductController::class, 'destroyIma
 Route::apiResource('categories', CategoryController::class);
 Route::get('/categories/{category}/subcategories', [CategoryController::class, 'subCategories']);
 Route::get('/categories/{category}/products', [CategoryController::class, 'products']);
-// Route::post('/images/categories', [ImagesController::class, 'categories'])->name('categories.images');
 
 /*
 |---------------------------------------------------------------------------
@@ -58,7 +54,6 @@ Route::get('/categories/{category}/products', [CategoryController::class, 'produ
 |--------------------------------------------------------------------------
 */
 Route::apiResource('partners', PartnerController::class);
-// Route::post('/images/partners', [ImagesController::class, 'partners'])->name('partners.images');
 
 /*
 |---------------------------------------------------------------------------
@@ -67,7 +62,6 @@ Route::apiResource('partners', PartnerController::class);
 */
 Route::apiResource('subcategories', SubCategoryController::class);
 Route::get('/subcategories/{subcategory}/products', [SubCategoryController::class, 'products']);
-// Route::post('/images/subcategories', [ImagesController::class, 'subcategories'])->name('subcategories.images');
 
 /*
 |---------------------------------------------------------------------------
@@ -82,7 +76,6 @@ Route::apiResource('term', TermsController::class);
 |--------------------------------------------------------------------------
 */
 Route::apiResource('services', ServiceController::class);
-// Route::post('/images/services', [ImagesController::class, 'services'])->name('services.images');
 Route::get('services/service/{name}', [ServiceController::class, 'filter']);
 
 /*
@@ -91,7 +84,6 @@ Route::get('services/service/{name}', [ServiceController::class, 'filter']);
 |--------------------------------------------------------------------------
 */
 Route::apiResource('certificates', CertificateController::class);
-// Route::post('/images/certificates', [ImagesController::class, 'certificates'])->name('certificates.images');
 
 /*
 |---------------------------------------------------------------------------
@@ -99,7 +91,6 @@ Route::apiResource('certificates', CertificateController::class);
 |--------------------------------------------------------------------------
 */
 Route::apiResource('videos', VideoController::class);
-// Route::post('/images/videos', [ImagesController::class, 'videos'])->name('videos.images');
 
 
 /*
@@ -109,7 +100,6 @@ Route::apiResource('videos', VideoController::class);
 |--------------------------------------------------------------------------
 */
 Route::apiResource('gallery', GalleryController::class);
-// Route::post('/images/galleries', [ImagesController::class, 'galleries'])->name('galleries.images');
 
 
 /*
@@ -118,7 +108,6 @@ Route::apiResource('gallery', GalleryController::class);
 |--------------------------------------------------------------------------
 */
 Route::apiResource('articles', ArticleController::class);
-// Route::post('/images/articles', [ImagesController::class, 'articles'])->name('articles.images');
 
 
 /*
@@ -128,10 +117,6 @@ Route::apiResource('articles', ArticleController::class);
 */
 Route::get('/meta', [MetaController::class, 'index'])->name('meta.index');
 Route::patch('/meta/update/{meta}', [MetaController::class, 'update'])->name('meta.update');
-// Route::post('/images/meta', [ImagesController::class, 'meta'])->name('meta.images');
-
-
-
 
 
 /*
@@ -139,8 +124,7 @@ Route::patch('/meta/update/{meta}', [MetaController::class, 'update'])->name('me
 | Images Routes
 |--------------------------------------------------------------------------
 */
-Route::post('/images', [ImagesController::class, 'store'])->name('images.store');
-Route::delete('/images/{image}', [ImagesController::class, 'destroy']);
+Route::post('/images', [ImageController::class, 'store'])->name('images.store');
 
 /*
 |---------------------------------------------------------------------------
@@ -150,7 +134,6 @@ Route::delete('/images/{image}', [ImagesController::class, 'destroy']);
 Route::group([
     'prefix' => 'mail'
 ], function () {
-
     Route::post('/contact-us', [FormsController::class, 'contactUs'])
         ->name('mail.contact');
     Route::post('/customize', [FormsController::class, 'customize'])

@@ -21,23 +21,30 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
-
-        $point1 = $this->faker->text;
-        $point2 = $this->faker->text;
-        $point3 = $this->faker->text;
-        $points = '["'.$point1.'","'.$point2.'","'.$point3.'"]';
-
         return [
             'name' => $this->faker->word,
             'name_ar' => $this->faker->word,
-            'points' => $points,
-            'points_ar' => $points,
+            'points' => $this->randomStringsArray(),
+            'points_ar' => $this->randomStringsArray(),
             'description' => $this->faker->text,
             'description_ar' => $this->faker->text,
-            'features' => $this->faker->text,
-            'features_ar' => $this->faker->text,
-            'image_url' => 'http://127.0.0.1:8000/storage/specs_images/gh1pf7x0BseMEakFqKgN0ytQnlMR8RWgirs3EquA.jpg',
+            'features' => $this->randomStringsArray(),
+            'features_ar' => $this->randomStringsArray(),
+            'images' => [$this->faker->imageUrl(), $this->faker->imageUrl(), $this->faker->imageUrl()],
+            'specifications_image_url' => $this->faker->imageUrl(),
             'sub_category_id' => $this->faker->numberBetween(1, 25),
+        ];
+    }
+
+    /**
+     * Returns an array of random strings
+     *
+     * @return array
+     */
+    private function randomStringsArray(): array
+    {
+        return [
+            $this->faker->sentence, $this->faker->sentence, $this->faker->sentence
         ];
     }
 }

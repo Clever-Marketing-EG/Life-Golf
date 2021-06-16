@@ -17,22 +17,13 @@ class Product extends Model
     protected $guarded = [];
 
 
-    protected $with = ['images'];
-
     protected $casts = [
         'points' => 'array',
         'points_ar' => 'array',
         'features' => 'array',
-        'features_ar' => 'array'
+        'features_ar' => 'array',
+        'images' => 'array'
     ];
-
-    /**
-     * Get the images for the product.
-     */
-    public function images(): HasMany
-    {
-        return $this->hasMany(Image::class);
-    }
 
 
     /**
@@ -56,11 +47,11 @@ class Product extends Model
             'features.*' => 'required|string|min:3',
             'features_ar' => 'required|array|min:1',
             'features_ar.*' => 'required|string|min:3',
-            'image_url'  => 'required|url',
-            'configuration_image_url' => 'url|nullable',
+            'images'  => 'required|array|min:1',
+            'images.*'  => 'required|url',
+            'configuration_image_url' => 'nullable|url',
+            'specifications_image_url' => 'required|url',
             'sub_category_id' => 'required|integer|exists:sub_categories,id'
-
-
         ]);
 
     }

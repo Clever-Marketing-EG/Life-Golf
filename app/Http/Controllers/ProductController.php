@@ -2,45 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Image;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\SubCategory;
 
 class ProductController extends Controller
 {
 
+    /**
+     * List products
+     *
+     * @return JsonResponse
+     */
     public function index(): JsonResponse
     {
         $products = Product::paginate(20)->toArray();
-
-        return response()->json(array_merge(
-            ['success' => true],
-            $products,
-        ));
+        return $this->jsonResponse($products);
     }
 
+    /**
+     * Create a product
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function store(Request $request): JsonResponse
     {
         $validated = Product::validate($request);
 
         $product = Product::create($validated);
 
-        return response()->json([
-            'success' => true,
-            'data' => $product
-        ]);
+        return $this->jsonResponse($product);
     }
 
     public function show(Product $product): JsonResponse
     {
-        return response()->json([
-            'success' => true,
-            'data' => $product
-        ]);
+        return $this->jsonResponse($product);
     }
 
     public function update(Product $product, Request $request): JsonResponse
@@ -48,20 +46,14 @@ class ProductController extends Controller
         $validated = Product::validate($request);
         $product->update($validated);
 
-        return response()->json([
-            'success' => true,
-            'data' => $product
-        ]);
+        return $this->jsonResponse($product);
     }
 
     public function destroy(Product $product): JsonResponse
     {
         try {
             $product->delete();
-            return response()->json([
-                'success' => true,
-                'data' => $product
-            ]);
+            return $this->jsonResponse($product);
         } catch (Exception $e) {
             return response()->json([
                 'success' => false,
@@ -69,18 +61,4 @@ class ProductController extends Controller
             ]);
         }
     }
-
-    public function destroyImage(Image $image)
-    {
-        $image->delete();
-        return response()->json([
-            'success' => true,
-            'message' => 'Image deleted successfully'
-        ]);
-    }
-
-    // public function filter(Category $category, SubCategory $category): JsonResponse
-    // {
-
-    // }
 }

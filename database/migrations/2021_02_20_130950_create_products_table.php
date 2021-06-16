@@ -24,8 +24,9 @@ class CreateProductsTable extends Migration
             $table->text('features');
             $table->text('features_ar');
             $table->foreignId('sub_category_id')->constrained()->onDelete('cascade');
-            $table->string('image_url');
+            $table->text('images');
             $table->string('configuration_image_url')->nullable();
+            $table->string('specifications_image_url');
             $table->timestamps();
         });
     }
