@@ -108,11 +108,32 @@ class CategoryController extends Controller
     }
 
 
-    public function subcategories(Category $category)
+    /**
+     * List sub-categories of a category
+     *
+     * @param Category $category
+     * @return JsonResponse
+     */
+    public function subCategories(Category $category): JsonResponse
     {
         return response()->json([
             'success' => true,
             'data' => $category->subcategories,
+        ]);
+    }
+
+
+    /**
+     * List all products of a category
+     *
+     * @param Category $category
+     * @return JsonResponse
+     */
+    public function products(Category $category): JsonResponse
+    {
+        return response()->json([
+            'success' => true,
+            'data' => $category->products
         ]);
     }
 }

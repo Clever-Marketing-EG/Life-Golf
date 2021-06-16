@@ -17,7 +17,6 @@ use App\Http\Controllers\VideoController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\PartnerController;
-use App\Models\Meta;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +48,8 @@ Route::delete('/images/products/{image}', [ProductController::class, 'destroyIma
 |--------------------------------------------------------------------------
 */
 Route::apiResource('categories', CategoryController::class);
-Route::get('/categories/{category}/subcategories', [CategoryController::class, 'subcategories']);
+Route::get('/categories/{category}/subcategories', [CategoryController::class, 'subCategories']);
+Route::get('/categories/{category}/products', [CategoryController::class, 'products']);
 // Route::post('/images/categories', [ImagesController::class, 'categories'])->name('categories.images');
 
 /*
