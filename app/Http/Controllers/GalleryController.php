@@ -38,7 +38,6 @@ class GalleryController extends Controller
             'image_url' => 'required:url',
             'description' => 'required|min:3|string',
             'description_ar' => 'required|min:3|string',
-            'type' => 'required|min:3|string'
         ]);
         $gallery = Gallery::create($validated);
         return response()->json([
@@ -74,7 +73,6 @@ class GalleryController extends Controller
             'image_url' => 'url',
             'description' => 'min:3|string',
             'description_ar' => 'min:3|string',
-            'type' => 'min:3|string'
         ]);
         $gallery->update($validated);
         return response()->json([
