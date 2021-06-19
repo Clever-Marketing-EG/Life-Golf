@@ -15,6 +15,5 @@ class Video extends Model
         'title_ar',
         'description',
         'description_ar',
-        'type'
     ];
 }
