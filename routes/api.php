@@ -17,6 +17,8 @@ use App\Http\Controllers\VideoController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\FormsController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\EvServiceController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -109,6 +111,12 @@ Route::apiResource('gallery', GalleryController::class);
 */
 Route::apiResource('articles', ArticleController::class);
 
+/*
+|---------------------------------------------------------------------------
+| ElectricVichale service Routes
+|--------------------------------------------------------------------------
+*/
+Route::apiResource('evservice', EvServiceController::class);
 
 /*
 |---------------------------------------------------------------------------
