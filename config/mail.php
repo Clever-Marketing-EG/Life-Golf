@@ -1,5 +1,8 @@
 <?php
 
+define('MAIL_TO', env('MAIL_RECEIVER', 'tech@clevermarketing-eg.com'));
+define('MAIL_FROM', env('MAIL_FROM', 'info@life-golf.com'));
+
 return [
 
     /*

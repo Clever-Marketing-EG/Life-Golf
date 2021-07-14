@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Mail;
@@ -9,14 +10,12 @@ use App\Mail\ContactEmail;
 use App\Mail\OrderMail;
 use App\Mail\CustomizeMail;
 
-define('MAIL_TO', env('MAIL_RECEIVER', 'tech@clevermarketing-eg.com'));
-define('MAIL_FROM', env('MAIL_FROM', 'info@life-golf.com'));
 
 
 class FormsController extends Controller
 {
 
-    public function contactUs(Request $request)
+    public function contactUs(Request $request): JsonResponse
     {
         $data = $request->validate([
             'email' => 'required|min:3|email|string',
@@ -24,7 +23,6 @@ class FormsController extends Controller
             'from' => 'required|min:3|string',
             'subject' => 'required|min:3|string',
             'phone' => 'required|numeric|min:7'
-
         ]);
 
         Mail::to(MAIL_TO)->send(new ContactEmail($data));
@@ -36,7 +34,7 @@ class FormsController extends Controller
     }
 
 
-    public function customize(Request $request)
+    public function customize(Request $request): JsonResponse
     {
         $data = $request->validate([
             'first_name' => 'required|min:3|string',
@@ -60,7 +58,7 @@ class FormsController extends Controller
     }
 
 
-    public function order(Request $request)
+    public function order(Request $request): JsonResponse
     {
         $data = $request->validate([
             'product' => 'required|string|min:3',
