@@ -628,7 +628,70 @@ class MetaSeeder extends Seeder
             ]
         );
 
-        $data = array_merge($homeData, $aboutUsData, $footerData, $maintenanceData, $contactData, $electronicDate, $customData);
+
+
+        $ElectricVichaleData = array(
+            [
+                'name' => 'intro_image',
+                'content' => 'https://imgcdn.zigwheels.ph/medium/gallery/exterior/31/1902/volkswagen-lavida-full-front-view-949486.jpg',
+                'content_ar' => 'https://imgcdn.zigwheels.ph/medium/gallery/exterior/31/1902/volkswagen-lavida-full-front-view-949486.jpg',
+                'type' => 'image',
+                'page' => 'ElectricVichale'
+            ],
+            [
+                'name' => 'about_image',
+                'content' => 'https://imgcdn.zigwheels.ph/medium/gallery/exterior/31/1902/volkswagen-lavida-full-front-view-949486.jpg',
+                'content_ar' => 'https://imgcdn.zigwheels.ph/medium/gallery/exterior/31/1902/volkswagen-lavida-full-front-view-949486.jpg',
+                'type' => 'image',
+                'page' => 'ElectricVichale'
+            ],
+            [
+                'name' => 'about_video',
+                'content' => 'https://www.youtube.com/embed/vVEvmT5O75o',
+                'content_ar' => 'https://www.youtube.com/embed/vVEvmT5O75o',
+                'type' => 'image',
+                'page' => 'ElectricVichale'
+            ],
+            [
+                'name' => 'about_title',
+                'content' => 'About US',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'ElectricVichale'
+            ],
+            [
+                'name' => 'about_content',
+                'content' => 'About content',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'ElectricVichale'
+            ],
+            [
+                'name' => 'contact_phone',
+                'content' => '01281173567',
+                'content_ar' => '01281173567',
+                'type' => 'text',
+                'page' => 'ElectricVichale'
+            ],
+            [
+                'name' => 'contact_email',
+                'content' => 'mina@gmail.com',
+                'content_ar' => 'mina@gmail.com',
+                'type' => 'text',
+                'page' => 'ElectricVichale'
+            ],
+            [
+                'name' => 'contact_address',
+                'content' => '7 sjsijdsj 4',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'ElectricVichale'
+            ],
+
+        );
+
+
+        $data = array_merge($homeData, $aboutUsData, $footerData, $maintenanceData, $contactData, $electronicDate, $customData, $ElectricVichaleData);
 
         DB::table('metas')->insert($data);
     }

@@ -17,7 +17,7 @@ class EvServiceController extends Controller
      */
     public function index(): JsonResponse
     {
-        $evService = EvService::latest()->paginate(5)->toArray();
+        $evService = EvService::latest()->paginate(10)->toArray();
 
         return response()->json(array_merge(
             ['success' => true],
