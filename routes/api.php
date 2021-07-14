@@ -10,6 +10,7 @@ use App\Http\Controllers\MetaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\EvProductController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TermsController;
@@ -57,6 +58,12 @@ Route::get('/categories/{category}/products', [CategoryController::class, 'produ
 */
 Route::apiResource('partners', PartnerController::class);
 
+/*
+|---------------------------------------------------------------------------
+| EvProducts Routes
+|--------------------------------------------------------------------------
+*/
+Route::apiResource('evproducts', EvProductController::class);
 /*
 |---------------------------------------------------------------------------
 | SubCategories Routes

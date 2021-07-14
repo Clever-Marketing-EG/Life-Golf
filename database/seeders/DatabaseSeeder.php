@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\ArticleCategory;
+use App\Models\EvProduct;
 use App\Models\Partner;
 use App\Models\SubCategory;
 use Illuminate\Database\Seeder;
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             MetaSeeder::class,
             PartnerSeeder::class,
+            EvProductSeeder::class
             // SubCategorySeeder::class
             // ServiceSeeder::class,
             // CertificateSeeder::class,
