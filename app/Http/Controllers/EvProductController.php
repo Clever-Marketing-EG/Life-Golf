@@ -37,21 +37,32 @@ class EvProductController extends Controller
         return $this->jsonResponse($product);
     }
 
-    public function show(EvProduct $product): JsonResponse
+
+
+    public function show($id): JsonResponse
     {
-        return $this->jsonResponse($product);
+        $product = EvProduct::find($id);
+        return response()->json([
+            'success' => true,
+            'data' => $product
+        ]);
     }
 
-    public function update(EvProduct $product, Request $request): JsonResponse
+    public function update(Request $request, $id): JsonResponse
     {
         $validated = EvProduct::validate($request);
+        $product = EvProduct::find($id);
         $product->update($validated);
 
-        return $this->jsonResponse($product);
+        return response()->json([
+            'success' => true,
+            'data' => $product
+        ]);
     }
 
-    public function destroy(EvProduct $product): JsonResponse
+    public function destroy($id): JsonResponse
     {
+        $product = EvProduct::find($id);
         try {
             $product->delete();
             return $this->jsonResponse($product);
